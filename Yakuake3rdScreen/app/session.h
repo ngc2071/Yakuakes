@@ -1,140 +1,152 @@
 /*
-  Copyright (C) 2008-2009 by Eike Hein <hein@kde.org>
-  Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
+  SPDX-FileCopyrightText: 2008-2009 Eike Hein <hein@kde.org>
+  SPDX-FileCopyrightText: 2009 Juan Carlos Torres <carlosdgtorres@gmail.com>
 
-  This program is free software; you can redistribute it and/or
-  modify it under the terms of the GNU General Public License as
-  published by the Free Software Foundation; either version 2 of
-  the License or (at your option) version 3 or any later version
-  accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy
-  defined in Section 14 of version 3 of the license.
-
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program. If not, see https://www.gnu.org/licenses/.
+  SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
-
 
 #ifndef SESSION_H
 #define SESSION_H
 
-
 #include "splitter.h"
 
-#include <QMap>
 #include <QObject>
 
-
 class Terminal;
-
 
 class Session : public QObject
 {
     Q_OBJECT
 
-    public:
-        enum SessionType { Single, TwoHorizontal, TwoVertical, Quad };
-        enum GrowthDirection { Up, Right, Down, Left };
+public:
+    enum SessionType {
+        Single,
+        TwoHorizontal,
+        TwoVertical,
+        Quad,
+    };
+    enum GrowthDirection {
+        Up,
+        Right,
+        Down,
+        Left,
+    };
 
-        explicit Session(const QString& workingDir, SessionType type = Single, QWidget* parent = 0);
-         ~Session();
+    explicit Session(const QString &workingDir, SessionType type = Single, QWidget *parent = nullptr);
+    ~Session() override;
 
-        int id() { return m_sessionId; }
-        const QString title() { return m_title; }
-        QWidget* widget() { return m_baseSplitter; }
+    int id() const
+    {
+        return m_sessionId;
+    }
+    const QString title()
+    {
+        return m_title;
+    }
+    QWidget *widget()
+    {
+        return m_baseSplitter;
+    }
 
-        int activeTerminalId() { return m_activeTerminalId; }
-        const QString terminalIdList();
-        int terminalCount() { return m_terminals.count(); }
-        bool hasTerminal(int terminalId);
-        Terminal* getTerminal(int terminalId);
+    int activeTerminalId() const
+    {
+        return m_activeTerminalId;
+    }
+    const QString terminalIdList();
+    int terminalCount() const
+    {
+        return m_terminals.size();
+    }
+    bool hasTerminal(int terminalId);
+    Terminal *getTerminal(int terminalId);
 
-        bool closable() { return m_closable; }
-        void setClosable(bool closable) { m_closable = closable; }
+    bool closable() const
+    {
+        return m_closable;
+    }
+    void setClosable(bool closable)
+    {
+        m_closable = closable;
+    }
 
-        bool keyboardInputEnabled();
-        void setKeyboardInputEnabled(bool enabled);
-        bool keyboardInputEnabled(int terminalId);
-        void setKeyboardInputEnabled(int terminalId, bool enabled);
-        bool hasTerminalsWithKeyboardInputEnabled();
-        bool hasTerminalsWithKeyboardInputDisabled();
+    bool keyboardInputEnabled();
+    void setKeyboardInputEnabled(bool enabled);
+    bool keyboardInputEnabled(int terminalId);
+    void setKeyboardInputEnabled(int terminalId, bool enabled);
+    bool hasTerminalsWithKeyboardInputEnabled();
+    bool hasTerminalsWithKeyboardInputDisabled();
 
-        bool monitorActivityEnabled();
-        void setMonitorActivityEnabled(bool enabled);
-        bool monitorActivityEnabled(int terminalId);
-        void setMonitorActivityEnabled(int terminalId, bool enabled);
-        bool hasTerminalsWithMonitorActivityEnabled();
-        bool hasTerminalsWithMonitorActivityDisabled();
+    bool monitorActivityEnabled();
+    void setMonitorActivityEnabled(bool enabled);
+    bool monitorActivityEnabled(int terminalId);
+    void setMonitorActivityEnabled(int terminalId, bool enabled);
+    bool hasTerminalsWithMonitorActivityEnabled();
+    bool hasTerminalsWithMonitorActivityDisabled();
 
-        bool monitorSilenceEnabled();
-        void setMonitorSilenceEnabled(bool enabled);
-        bool monitorSilenceEnabled(int terminalId);
-        void setMonitorSilenceEnabled(int terminalId, bool enabled);
-        bool hasTerminalsWithMonitorSilenceEnabled();
-        bool hasTerminalsWithMonitorSilenceDisabled();
+    bool monitorSilenceEnabled();
+    void setMonitorSilenceEnabled(bool enabled);
+    bool monitorSilenceEnabled(int terminalId);
+    void setMonitorSilenceEnabled(int terminalId, bool enabled);
+    bool hasTerminalsWithMonitorSilenceEnabled();
+    bool hasTerminalsWithMonitorSilenceDisabled();
 
+    bool wantsBlur() const;
 
-    public Q_SLOTS:
-        void closeTerminal(int terminalId = -1);
+public Q_SLOTS:
+    void closeTerminal(int terminalId = -1);
 
-        void focusNextTerminal();
-        void focusPreviousTerminal();
+    void focusNextTerminal();
+    void focusPreviousTerminal();
 
-        int splitLeftRight(int terminalId = -1);
-        int splitTopBottom(int terminalId = -1);
+    int splitAuto(int terminalId = -1);
+    int splitLeftRight(int terminalId = -1);
+    int splitTopBottom(int terminalId = -1);
 
-        int tryGrowTerminal(int terminalId, GrowthDirection direction, uint pixels);
+    int tryGrowTerminal(int terminalId, GrowthDirection direction, uint pixels);
 
-        void runCommand(const QString& command, int terminalId = -1);
+    void runCommand(const QString &command, int terminalId = -1);
 
-        void manageProfiles();
-        void editProfile();
+    void manageProfiles();
+    void editProfile();
 
-        void reconnectMonitorActivitySignals();
+    void reconnectMonitorActivitySignals();
 
+Q_SIGNALS:
+    void titleChanged(const QString &title);
+    void titleChanged(int sessionId, const QString &title);
+    void terminalManuallyActivated(Terminal *terminal);
+    void keyboardInputBlocked(Terminal *terminal);
+    void activityDetected(Terminal *terminal);
+    void silenceDetected(Terminal *terminal);
+    void destroyed(int sessionId);
+    void wantsBlurChanged();
 
-    Q_SIGNALS:
-        void titleChanged(const QString& title);
-        void titleChanged(int sessionId, const QString& title);
-        void terminalManuallyActivated(Terminal* terminal);
-        void keyboardInputBlocked(Terminal* terminal);
-        void activityDetected(Terminal* terminal);
-        void silenceDetected(Terminal* terminal);
-        void destroyed(int sessionId);
+private Q_SLOTS:
+    void setActiveTerminal(int terminalId);
+    void setTitle(int terminalId, const QString &title);
 
+    void cleanup(int terminalId);
+    void cleanup();
+    void prepareShutdown();
 
-    private Q_SLOTS:
-        void setActiveTerminal(int terminalId);
-        void setTitle(int terminalId, const QString& title);
+private:
+    void setupSession(SessionType type);
 
-        void cleanup(int terminalId);
-        void cleanup();
-        void prepareShutdown();
+    Terminal *addTerminal(QSplitter *parent, QString workingDir = QString());
+    int split(Terminal *terminal, Qt::Orientation orientation);
 
+    QString m_workingDir;
+    static int m_availableSessionId;
+    int m_sessionId;
 
-    private:
-        void setupSession(SessionType type);
+    Splitter *m_baseSplitter = nullptr;
 
-        Terminal* addTerminal(QWidget* parent, QString workingDir = QString());
-        int split(Terminal* terminal, Qt::Orientation orientation);
+    int m_activeTerminalId;
+    std::map<int, std::unique_ptr<Terminal>> m_terminals;
 
-        QString m_workingDir;
-        static int m_availableSessionId;
-        int m_sessionId;
+    QString m_title;
 
-        Splitter* m_baseSplitter;
-
-        int m_activeTerminalId;
-        QMap<int, Terminal*> m_terminals;
-
-        QString m_title;
-
-        bool m_closable;
+    bool m_closable;
 };
 
 #endif

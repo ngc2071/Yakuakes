@@ -43,14 +43,14 @@
       </size>
      </property>
      <property name="text" >
-      <string comment="@title" >Welcome to Yakuake</string>
+      <string comment="@title" >Welcome to Yakuake3rdScreen</string>
      </property>
     </widget>
    </item>
    <item row="1" column="0" colspan="3" >
     <widget class="QLabel" name="introLabel" >
      <property name="text" >
-      <string comment="@info" >Before starting to use the application, you might want to change the keyboard shortcut used to open and retract the Yakuake window:</string>
+      <string comment="@info" >Before starting to use the application, you might want to change the keyboard shortcut used to open and retract the Yakuake3rdScreen window:</string>
      </property>
      <property name="wordWrap" >
       <bool>true</bool>

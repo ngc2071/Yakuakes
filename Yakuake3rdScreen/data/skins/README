@@ -24,7 +24,7 @@
 
 ** How should I package a Yakuake skin?
 
-   The "Skins" page in the Yakuake configuration dialog features an "Install
+   The "Skins" page in the Yakuake3rdScreen configuration dialog features an "Install
    Skin" facility that can install Yakuake skin directories packaged as a
    tar archive and optionally compressed using gzip or bzip2. Packages can be
    installed from a local volume or a URL (using KIO).

@@ -2,7 +2,7 @@ install(FILES
     title.skin
     tabs.skin
     icon.png
-    DESTINATION ${DATA_INSTALL_DIR}/Yakuake2ndScreen/skins/legacy)
+    DESTINATION ${KDE_INSTALL_DATADIR}/Yakuake2ndScreen/skins/legacy)
 
 install(FILES
     tabs/back_image.png
@@ -20,7 +20,7 @@ install(FILES
     tabs/separator.png
     tabs/unselected_back.png
     tabs/lock.png
-    DESTINATION ${DATA_INSTALL_DIR}/Yakuake2ndScreen/skins/legacy/tabs)
+    DESTINATION ${KDE_INSTALL_DATADIR}/Yakuake2ndScreen/skins/legacy/tabs)
 
 install(FILES
     title/back.png
@@ -35,4 +35,4 @@ install(FILES
     title/quit_over.png
     title/quit_up.png
     title/right.png
-    DESTINATION ${DATA_INSTALL_DIR}/Yakuake2ndScreen/skins/legacy/title)
+    DESTINATION ${KDE_INSTALL_DATADIR}/Yakuake2ndScreen/skins/legacy/title)

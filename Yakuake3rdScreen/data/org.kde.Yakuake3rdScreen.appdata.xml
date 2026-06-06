@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop-application">
+  <id>org.kde.Yakuake3rdScreen.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <developer id="org.kde">
+    <name translate="no">KDE</name>
+  </developer>
+  <name>Yakuake3rdScreen</name>
+  <name xml:lang="ar">ياكواكي</name>
+  <name xml:lang="ast">Yakuake3rdScreen</name>
+  <name xml:lang="az">Yakuake3rdScreen</name>
+  <name xml:lang="be">Yakuake3rdScreen</name>
+  <name xml:lang="bg">Yakuake3rdScreen</name>
+  <name xml:lang="bs">Yakuake3rdScreen</name>
+  <name xml:lang="ca">Yakuake3rdScreen</name>
+  <name xml:lang="ca-valencia">Yakuake3rdScreen</name>
+  <name xml:lang="cs">Yakuake3rdScreen</name>
+  <name xml:lang="da">Yakuake3rdScreen</name>
+  <name xml:lang="de">Yakuake3rdScreen</name>
+  <name xml:lang="el">Yakuake3rdScreen</name>
+  <name xml:lang="en-GB">Yakuake3rdScreen</name>
+  <name xml:lang="eo">Yakuake3rdScreen</name>
+  <name xml:lang="es">Yakuake3rdScreen</name>
+  <name xml:lang="et">Yakuake3rdScreen</name>
+  <name xml:lang="eu">Yakuake3rdScreen</name>
+  <name xml:lang="fi">Yakuake3rdScreen</name>
+  <name xml:lang="fr">Yakuake3rdScreen</name>
+  <name xml:lang="gl">Yakuake3rdScreen</name>
+  <name xml:lang="he">Yakuake3rdScreen</name>
+  <name xml:lang="hu">Yakuake3rdScreen</name>
+  <name xml:lang="ia">Yakuake3rdScreen</name>
+  <name xml:lang="id">Yakuake3rdScreen</name>
+  <name xml:lang="is">Yakuake3rdScreen</name>
+  <name xml:lang="it">Yakuake3rdScreen</name>
+  <name xml:lang="ka">Yakuake3rdScreen</name>
+  <name xml:lang="ko">Yakuake3rdScreen</name>
+  <name xml:lang="lt">Yakuake3rdScreen</name>
+  <name xml:lang="lv">Yakuake3rdScreen</name>
+  <name xml:lang="nl">Yakuake3rdScreen</name>
+  <name xml:lang="nn">Yakuake3rdScreen</name>
+  <name xml:lang="pa">ਯਾਕੁਕੇ</name>
+  <name xml:lang="pl">Yakuake3rdScreen</name>
+  <name xml:lang="pt">Yakuake3rdScreen</name>
+  <name xml:lang="pt-BR">Yakuake3rdScreen</name>
+  <name xml:lang="ro">Yakuake3rdScreen</name>
+  <name xml:lang="ru">Yakuake3rdScreen</name>
+  <name xml:lang="sa">याकुआके</name>
+  <name xml:lang="sk">Yakuake3rdScreen</name>
+  <name xml:lang="sl">Yakuake3rdScreen</name>
+  <name xml:lang="sr">Јакуаке</name>
+  <name xml:lang="sr-Latn">Yakuake3rdScreen</name>
+  <name xml:lang="sr-ijekavian">Јакуаке</name>
+  <name xml:lang="sr-ijekavianlatin">Yakuake3rdScreen</name>
+  <name xml:lang="sv">Yakuake3rdScreen</name>
+  <name xml:lang="tr">Yakuake3rdScreen</name>
+  <name xml:lang="uk">Yakuake3rdScreen</name>
+  <name xml:lang="zh-CN">Yakuake3rdScreen 下拉式终端</name>
+  <name xml:lang="zh-TW">Yakuake3rdScreen</name>
+  <summary>Drop-down Terminal</summary>
+  <summary xml:lang="ar">طرفيّة منسدلة</summary>
+  <summary xml:lang="az">Aşağı açılan terminal</summary>
+  <summary xml:lang="be">Выплыўны тэрмінал</summary>
+  <summary xml:lang="bg">Падащ терминал</summary>
+  <summary xml:lang="bs">Padajući terminal</summary>
+  <summary xml:lang="ca">Terminal desplegable</summary>
+  <summary xml:lang="ca-valencia">Terminal desplegable</summary>
+  <summary xml:lang="cs">Vysouvací terminál</summary>
+  <summary xml:lang="da">Rul-ned terminal</summary>
+  <summary xml:lang="de">Aufklapp-Terminal</summary>
+  <summary xml:lang="el">Τερματικό καθοδικής κύλισης</summary>
+  <summary xml:lang="en-GB">Drop-down Terminal</summary>
+  <summary xml:lang="eo">Falmenua Terminalo</summary>
+  <summary xml:lang="es">Terminal desplegable</summary>
+  <summary xml:lang="et">Lahtikeritav terminal</summary>
+  <summary xml:lang="eu">Goitik-behera zabaltzen den terminala</summary>
+  <summary xml:lang="fi">Alas putoava pääte</summary>
+  <summary xml:lang="fr">Terminal à liste déroulante</summary>
+  <summary xml:lang="gl">Terminal despregábel</summary>
+  <summary xml:lang="he">מסוף נשלף</summary>
+  <summary xml:lang="hu">Legördülő terminál</summary>
+  <summary xml:lang="ia">Terminal disrolante</summary>
+  <summary xml:lang="id">Terminal Bentangturun</summary>
+  <summary xml:lang="is">Felliskjáhermir</summary>
+  <summary xml:lang="it">Terminale a discesa</summary>
+  <summary xml:lang="ka">ჩამოსაშლელი ტერმინალი</summary>
+  <summary xml:lang="ko">위에서 내려오는 터미널</summary>
+  <summary xml:lang="lt">Išskleidžiamasis terminalas</summary>
+  <summary xml:lang="lv">Izkrītošs terminālis</summary>
+  <summary xml:lang="nl">Uitvouwbare terminalemulator</summary>
+  <summary xml:lang="nn">Nedtrekksterminal</summary>
+  <summary xml:lang="pa">ਲਟਕਦਾ ਟਰਮੀਨਲ</summary>
+  <summary xml:lang="pl">Rozwijany terminal</summary>
+  <summary xml:lang="pt">Terminal Acoplável</summary>
+  <summary xml:lang="pt-BR">Terminal suspenso</summary>
+  <summary xml:lang="ro">Terminal derulant</summary>
+  <summary xml:lang="ru">Выпадающий терминал</summary>
+  <summary xml:lang="sa">ड्रॉप-डाउन टर्मिनल्</summary>
+  <summary xml:lang="sk">Rozbaľovací terminál</summary>
+  <summary xml:lang="sl">Roletni terminal</summary>
+  <summary xml:lang="sr">Падајући терминал</summary>
+  <summary xml:lang="sr-Latn">Padajući terminal</summary>
+  <summary xml:lang="sr-ijekavian">Падајући терминал</summary>
+  <summary xml:lang="sr-ijekavianlatin">Padajući terminal</summary>
+  <summary xml:lang="sv">Rullgardinsterminal</summary>
+  <summary xml:lang="tr">Yukarıdan Aşağı Açılır Uçbirim</summary>
+  <summary xml:lang="uk">Спадний термінал</summary>
+  <summary xml:lang="zh-CN">下拉式终端</summary>
+  <summary xml:lang="zh-TW">下拉式終端機</summary>
+  <description>
+    <p>
+      Yakuake3rdScreen is a drop-down terminal emulator based on KDE Konsole technology.
+    </p>
+    <p xml:lang="ar">«ياكواكي» هو محاكي طرفيّة منسدل مبنيّ على تقنيّة «طرفيّة كِيدِي».</p>
+    <p xml:lang="az">Yakuake3rdScreen KDE Konsole texnologiyasına əsaslanan aşağı açılan terminal emulyatorudur.</p>
+    <p xml:lang="be">Yakuake3rdScreen - выплыўны эмулятар тэрмінала на аснове тэхналогіі KDE Konsole.</p>
+    <p xml:lang="bg">Yakuake3rdScreen е падащ терминален емулатор с меню, базиран на конзолната технология на KDE.</p>
+    <p xml:lang="ca">El Yakuake3rdScreen és un emulador de terminal desplegable basat en la tecnologia del Konsole del KDE.</p>
+    <p xml:lang="ca-valencia">Yakuake3rdScreen és un emulador de terminal desplegable basat en la tecnologia de Konsole de KDE.</p>
+    <p xml:lang="cs">Yakuake3rdScreen je vysouvací emulátor terminálu založený na technologii KDE Konsole.</p>
+    <p xml:lang="da">Yakuake3rdScreen er en rul-ned terminalemulator baseret på KDE Konsole-teknologi.</p>
+    <p xml:lang="de">Yakuake3rdScreen ist ein Aufklapp-Terminalemulator basierend auf der KDE-Konsole.</p>
+    <p xml:lang="el">Το Yakuake3rdScreen είναι ένας εξομοιωτής τερματικού καθοδικής κύλισης με βάση την τεχνολογία του KDE Konsole.</p>
+    <p xml:lang="en-GB">Yakuake3rdScreen is a drop-down terminal emulator based on KDE Konsole technology.</p>
+    <p xml:lang="eo">Yakuake3rdScreen estas falmenua terminalimitilo bazita sur teknologio de KDE-Konsole.</p>
+    <p xml:lang="es">Yakuake3rdScreen en un emulador de terminal desplegable basado en la tecnología de Konsole de KDE.</p>
+    <p xml:lang="et">Yakuake3rdScreen on KDE Konsooli tehnoloogial põhinev lahtikeritav terminaliemulaator.</p>
+    <p xml:lang="eu">Yakuake3rdScreen KDE Konsole teknologian oinarritzen den goitik-behera zabaltzen den terminal emulatzaile bat da.</p>
+    <p xml:lang="fi">Yakuake3rdScreen on KDE:n Konsolen tekniikkaan perustuva alas putoava pääte.</p>
+    <p xml:lang="fr">Yakuake3rdScreen est un émulateur de terminal à liste déroulante reposant sur la technologie de l'application Konsole de KDE.</p>
+    <p xml:lang="gl">Yakuake3rdScreen é un emulador despregábel de terminal baseado en Konsole.</p>
+    <p xml:lang="he">Yakuake3rdScreen הוא מדמה מסוף נשלף שמבוסס על הטכנולוגיה של Konsole מבית KDE.</p>
+    <p xml:lang="hu">A Yakuake3rdScreen egy legördülő terminál, amely a KDE Konsole-ra épül.</p>
+    <p xml:lang="ia">Yakuake3rdScreen es un emulator de terminal disrolante basate sur technologia de KDE Konsole.</p>
+    <p xml:lang="id">Yakuake3rdScreen adalah emulator terminal bentangturun berdasarkan pada teknologi Konsole KDE</p>
+    <p xml:lang="is">Yakuake3rdScreen er felliskjáhermir byggður á grunni KDE Konsole.</p>
+    <p xml:lang="it">Yakuake3rdScreen è un emulatore di terminale a discesa basato sulla tecnologia di Konsole di KDE</p>
+    <p xml:lang="ka">Yakuake3rdScreen არის ჩამოსაშლელი ტერმინალის ემულატორი, რომელიც დაფუძნებულია KDE Konsole ტექნოლოგიაზე.</p>
+    <p xml:lang="ko">Yakuake3rdScreen는 KDE Konsole을 기반으로 한 드롭다운 터미널 에뮬레이터입니다.</p>
+    <p xml:lang="lt">Yakuake3rdScreen yra nusileidžiantis terminalo emuliatorius paremtas KDE Konsole technologija.</p>
+    <p xml:lang="lv">„Yakuake3rdScreen“ ir Izkrītošs termināļa emulators, kam pamatā ir KDE „Konsole“ tehnoloģija.</p>
+    <p xml:lang="nl">Yakuake3rdScreen is een uitvouwbare terminalemulator, gebaseerd op de technologie van KDE Konsole.</p>
+    <p xml:lang="nn">Rullegardinbasert terminalemulator basert på KDE Konsole-teknologien.</p>
+    <p xml:lang="pa">ਯਾਕੁਕੇ ਕੇਡੀਈ ਕਨਸੋਲ ਤਕਨਾਲੋਜੀ ਅਧਾਰਿਤ ਲਟਕਦਾ ਟਰਮੀਨਲ ਏਮੂਲੇਟਰ ਹੈ।</p>
+    <p xml:lang="pl">Yakuake3rdScreen jest rozwijanym emulatorem terminala opartym na technologii KDE Konsole.</p>
+    <p xml:lang="pt">O Yakuake3rdScreen é um emulador de terminal acoplável que se baseia na tecnologia do Konsole para o KDE.</p>
+    <p xml:lang="pt-BR">Yakuake3rdScreen é um emulador de terminal baseado na tecnologia do Konsole do KDE.</p>
+    <p xml:lang="ro">Yakuake3rdScreen e un emulator de terminal bazat pe tehnologia Konsole din KDE.</p>
+    <p xml:lang="ru">Yakuake3rdScreen — выпадающий эмулятор терминала, основанный на библиотеке приложения Konsole от KDE.</p>
+    <p xml:lang="sa">Yakuake3rdScreen इति KDE Konsole प्रौद्योगिक्याः आधारेण एकः ड्रॉप्-डाउन टर्मिनल् एमुलेटरः अस्ति ।</p>
+    <p xml:lang="sk">Yakuake3rdScreen je drop-down emulátor terminálu založený na KDE technológii Konsole.</p>
+    <p xml:lang="sl">Yakuake3rdScreen je roletni terminal na osnovi tehnologije KDE Konsole.</p>
+    <p xml:lang="sr">Јакуаке је падајући емулатор терминала над технологијом КДЕ‑ове Конзоле.</p>
+    <p xml:lang="sr-Latn">Yakuake3rdScreen je padajući emulator terminala nad tehnologijom KDE‑ove Konsole.</p>
+    <p xml:lang="sr-ijekavian">Јакуаке је падајући емулатор терминала над технологијом КДЕ‑ове Конзоле.</p>
+    <p xml:lang="sr-ijekavianlatin">Yakuake3rdScreen je padajući emulator terminala nad tehnologijom KDE‑ove Konsole.</p>
+    <p xml:lang="sv">Yakuake3rdScreen är en nerfällbar terminalemulator baserad på teknologi från KDE:s Terminal.</p>
+    <p xml:lang="tr">Yakuake3rdScreen KDE Konsole teknolojisi üzerine kurulu, yukarıdan aşağı açılabilen bir uçbirim öykünücüsüdür.</p>
+    <p xml:lang="uk">Yakuake3rdScreen — спадний замінник термінала, заснований на технології KDE Konsole.</p>
+    <p xml:lang="zh-CN">Yakuake3rdScreen 是一款基于 KDE Konsole 的下拉式终端仿真器。</p>
+    <p xml:lang="zh-TW">Yakuake3rdScreen 是一套基於 KDE 的 Konsole 開發出來的下拉式終端模擬器。</p>
+    <p>Features:</p>
+    <p xml:lang="ar">الميزات:</p>
+    <p xml:lang="az">İmkanlar:</p>
+    <p xml:lang="be">Магчымасці:</p>
+    <p xml:lang="bg">Функции:</p>
+    <p xml:lang="bs">Svojstva:</p>
+    <p xml:lang="ca">Característiques:</p>
+    <p xml:lang="ca-valencia">Característiques:</p>
+    <p xml:lang="cs">Vlastnosti:</p>
+    <p xml:lang="da">Funktioner:</p>
+    <p xml:lang="de">Funktionen:</p>
+    <p xml:lang="el">Λειτουργίες:</p>
+    <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="eo">Trajtoj:</p>
+    <p xml:lang="es">Funcionalidades:</p>
+    <p xml:lang="et">Omadused:</p>
+    <p xml:lang="eu">Eginbideak:</p>
+    <p xml:lang="fi">Ominaisuuksia:</p>
+    <p xml:lang="fr">Fonctionnalités :</p>
+    <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="he">יכולות:</p>
+    <p xml:lang="hu">Szolgáltatások:</p>
+    <p xml:lang="ia">Characteristicas:</p>
+    <p xml:lang="id">Fitur:</p>
+    <p xml:lang="is">Eiginleikar:</p>
+    <p xml:lang="it">Funzionalità:</p>
+    <p xml:lang="ka">თვისებები:</p>
+    <p xml:lang="ko">기능:</p>
+    <p xml:lang="lt">Ypatybės:</p>
+    <p xml:lang="lv">Iespējas:</p>
+    <p xml:lang="nl">Mogelijkheden:</p>
+    <p xml:lang="nn">Funksjonar:</p>
+    <p xml:lang="pa">ਫੀਚਰ:</p>
+    <p xml:lang="pl">Możliwości:</p>
+    <p xml:lang="pt">Funcionalidades:</p>
+    <p xml:lang="pt-BR">Funcionalidades:</p>
+    <p xml:lang="ro">Caracteristici:</p>
+    <p xml:lang="ru">Возможности:</p>
+    <p xml:lang="sa">गुणाः:</p>
+    <p xml:lang="sk">Funkcie:</p>
+    <p xml:lang="sl">Zmožnosti:</p>
+    <p xml:lang="sr">Могућности:</p>
+    <p xml:lang="sr-Latn">Mogućnosti:</p>
+    <p xml:lang="sr-ijekavian">Могућности:</p>
+    <p xml:lang="sr-ijekavianlatin">Mogućnosti:</p>
+    <p xml:lang="sv">Funktioner:</p>
+    <p xml:lang="tr">Özellikler:</p>
+    <p xml:lang="uk">Можливості:</p>
+    <p xml:lang="zh-CN">程序功能：</p>
+    <p xml:lang="zh-TW">功能：</p>
+    <ul>
+      <li>Smoothly rolls down from the top of your screen</li>
+      <li xml:lang="ar">ينسدل انسيابيًّا من أعلى شاشتك</li>
+      <li xml:lang="az">Ekranınızın yuxarısından rəvan şəkildə sürüçərək açılır</li>
+      <li xml:lang="be">Плаўна выплывае ўніз з верхняй часткі экрана</li>
+      <li xml:lang="bg">Плавно се разгъва от горния край на екрана</li>
+      <li xml:lang="ca">S'estén suaument des de la part superior de la pantalla</li>
+      <li xml:lang="ca-valencia">S'estén suaument des de la part superior de la pantalla</li>
+      <li xml:lang="cs">Plynule roluje dolů z horní části obrazovky</li>
+      <li xml:lang="da">Ruller blødt ned fra toppen af skærmen</li>
+      <li xml:lang="de">Rollt geschmeidig von der oberen Kante des Bildschirms herab</li>
+      <li xml:lang="el">Ομαλή καθοδική κύλιση από την κορυφή της οθόνης σας</li>
+      <li xml:lang="en-GB">Smoothly rolls down from the top of your screen</li>
+      <li xml:lang="eo">Glate rulas malsupren de la supro de via ekrano</li>
+      <li xml:lang="es">Se despliega suavemente desde la parte superior de la pantalla</li>
+      <li xml:lang="et">Sujuv lahtikerimine ekraani ülaservast</li>
+      <li xml:lang="eu">Zure pantaila goitik leunki beherantz biraka agertzen da</li>
+      <li xml:lang="fi">Rullaa sulavasti alas näytön ylälaidasta</li>
+      <li xml:lang="fr">Se déroule progressivement depuis le haut de votre écran</li>
+      <li xml:lang="gl">Desprégase suavemente desde a parte superior da pantalla.</li>
+      <li xml:lang="he">נשלף בצורה חלקה כלפי מטה מראש המסך שלך</li>
+      <li xml:lang="hu">Könnyed legördülés a képernyő tetejéről</li>
+      <li xml:lang="ia">Disrola lisiemente ab le culmine de tu schermo</li>
+      <li xml:lang="id">Membentang turun secara lembut dari atas layarmu</li>
+      <li xml:lang="is">Rúllast mjúklega niður frá efri brún skjásins</li>
+      <li xml:lang="it">Si srotola dolcemente dalla parte alta del tuo schermo</li>
+      <li xml:lang="ka">რბილად ჩამოიშლება თქვენი ეკრანის ზემო ნაწილიდან</li>
+      <li xml:lang="ko">화면 위에서 부드럽게 펼쳐져 내려오기</li>
+      <li xml:lang="lt">Sklandžiai nusileidžia žemyn nuo jūsų ekrano viršaus</li>
+      <li xml:lang="lv">Eleganti nolaižas no ekrāna augšas</li>
+      <li xml:lang="nl">Rolt langzaam naar beneden vanaf de bovenkant van uw scherm</li>
+      <li xml:lang="nn">Rullar jamt ned frå toppen av skjermen</li>
+      <li xml:lang="pl">Płynnie rozwija się z góry ekranu</li>
+      <li xml:lang="pt">Desenrola-se suavemente a partir do topo do seu ecrã</li>
+      <li xml:lang="pt-BR">Desenrola-se suavemente a partir do topo da sua tela</li>
+      <li xml:lang="ro">Se derulează lin în jos din partea de sus a ecranului</li>
+      <li xml:lang="ru">Плавное появление из верхней части экрана;</li>
+      <li xml:lang="sa">भवतः पटलस्य उपरितः सुचारुतया अधः लुठति</li>
+      <li xml:lang="sk">Plynulé rolovanie dolu z vrchu obrazovky</li>
+      <li xml:lang="sl">Z vrha zaslona se gladko pomakne navzdol</li>
+      <li xml:lang="sr">глатко одмотавање са врха екрана</li>
+      <li xml:lang="sr-Latn">glatko odmotavanje sa vrha ekrana</li>
+      <li xml:lang="sr-ijekavian">глатко одмотавање са врха екрана</li>
+      <li xml:lang="sr-ijekavianlatin">glatko odmotavanje sa vrha ekrana</li>
+      <li xml:lang="sv">Rullar ner mjukt från skärmens överkant</li>
+      <li xml:lang="tr">Ekranınızın üst bölümünden düzgünce aşağı iner</li>
+      <li xml:lang="uk">Плавно розгортається з верхньої частини вашого екрана.</li>
+      <li xml:lang="zh-CN">平滑地从屏幕顶端下拉显示</li>
+      <li xml:lang="zh-TW">平滑地從螢幕頂端拉下來</li>
+      <li>Tabbed interface</li>
+      <li xml:lang="ar">واجهة ألسنة</li>
+      <li xml:lang="az">Vərəqli interfeys</li>
+      <li xml:lang="be">Інтэрфейс з укладкамі</li>
+      <li xml:lang="bg">Наличност на раздели</li>
+      <li xml:lang="ca">Interfície amb pestanyes</li>
+      <li xml:lang="ca-valencia">Interfície amb pestanyes</li>
+      <li xml:lang="cs">Rozhraní s kartami</li>
+      <li xml:lang="da">Grænseflade med faneblade</li>
+      <li xml:lang="de">Bedienungsoberfläche mit Unterfenstern</li>
+      <li xml:lang="el">Περιβάλλον χρήσης με καρτέλες</li>
+      <li xml:lang="en-GB">Tabbed interface</li>
+      <li xml:lang="eo">Langeta interfaco</li>
+      <li xml:lang="es">Interfaz con pestañas</li>
+      <li xml:lang="et">Kaartidega liides</li>
+      <li xml:lang="eu">Fitxa bidezko interfazea</li>
+      <li xml:lang="fi">Välilehdet</li>
+      <li xml:lang="fr">Interface à onglets</li>
+      <li xml:lang="gl">Interface con separadores</li>
+      <li xml:lang="he">ממשק עם לשוניות</li>
+      <li xml:lang="hu">Többlapos felület</li>
+      <li xml:lang="ia">Interfacie a schedas (tab)</li>
+      <li xml:lang="id">Antarmuka bertab</li>
+      <li xml:lang="is">Viðmót með flipum</li>
+      <li xml:lang="it">Interfaccia a schede</li>
+      <li xml:lang="ka">ჩანართებიანი ინტერფეისი</li>
+      <li xml:lang="ko">탭 인터페이스</li>
+      <li xml:lang="lt">Kortelės sąsajoje</li>
+      <li xml:lang="lv">Saskarne ar cilnēm</li>
+      <li xml:lang="nl">Interface met tabbladen</li>
+      <li xml:lang="nn">Brukargrensesnitt med faner</li>
+      <li xml:lang="pa">ਟੈਬਾਂ ਵਾਲਾ ਇੰਟਰਫੇਸ</li>
+      <li xml:lang="pl">Interfejs z kartami</li>
+      <li xml:lang="pt">Interface por páginas</li>
+      <li xml:lang="pt-BR">Interface por abas</li>
+      <li xml:lang="ro">Interfață cu file</li>
+      <li xml:lang="ru">Поддержка вкладок;</li>
+      <li xml:lang="sa">ट्याब्ड् अन्तरफलकम्</li>
+      <li xml:lang="sk">Kartové rozhranie</li>
+      <li xml:lang="sl">Vmesnik z zavihki</li>
+      <li xml:lang="sr">сучеље са језичцима</li>
+      <li xml:lang="sr-Latn">sučelje sa jezičcima</li>
+      <li xml:lang="sr-ijekavian">сучеље са језичцима</li>
+      <li xml:lang="sr-ijekavianlatin">sučelje sa jezičcima</li>
+      <li xml:lang="sv">Flikgränssnitt</li>
+      <li xml:lang="tr">Sekmeli arayüz</li>
+      <li xml:lang="uk">Інтерфейс із вкладками.</li>
+      <li xml:lang="zh-CN">标签页式界面</li>
+      <li xml:lang="zh-TW">分頁介面</li>
+      <li>Configurable dimensions and animation speed</li>
+      <li xml:lang="ar">أبعاد وسرعة حركات قابلة للضّبط</li>
+      <li xml:lang="az">Tənzimlənəbilən ölçülər və animasiya sürəti</li>
+      <li xml:lang="be">Наладжвальныя памеры і хуткасць анімацыі</li>
+      <li xml:lang="bg">Възможност за анимация и настройки на размера</li>
+      <li xml:lang="ca">Les dimensions i la velocitat de l'animació es poden configurar</li>
+      <li xml:lang="ca-valencia">Les dimensions i la velocitat de l'animació es poden configurar</li>
+      <li xml:lang="cs">Nastavitelné rozměry a rychlost animace</li>
+      <li xml:lang="da">Dimensioner og animationshastighed kan indstilles</li>
+      <li xml:lang="de">Benutzerdefinierte Abmessungen und Animationsgeschwindigkeit</li>
+      <li xml:lang="el">Διαμορφώσιμες διαστάσεις και ταχύτητα με εφέ κίνησης</li>
+      <li xml:lang="en-GB">Configurable dimensions and animation speed</li>
+      <li xml:lang="eo">Agordeblaj dimensioj kaj rapideco de animacio</li>
+      <li xml:lang="es">Se pueden configurar las dimensiones y la velocidad de animación</li>
+      <li xml:lang="et">Seadistatavad mõõtmed ja animatsiooni kiirus</li>
+      <li xml:lang="eu">Dimentsioak eta animazio-abiadura konfiguragarriak </li>
+      <li xml:lang="fi">Muutettavissa olevat mitat ja animointinopeus</li>
+      <li xml:lang="fr">Dimensions et vitesse d'animation configurables</li>
+      <li xml:lang="gl">Dimensións e velocidade de animación configurábeis.</li>
+      <li xml:lang="he">ממדים ומהירויות הנפשה שאפשר להגדיר</li>
+      <li xml:lang="hu">Testre szabható méretek és animációs sebesség</li>
+      <li xml:lang="ia">Dimensiones e velocitate de animation configurabile</li>
+      <li xml:lang="id">Kecepatan animasi dan dimensi yang dapat dikonfigurasi</li>
+      <li xml:lang="is">Stillanlegar stærðir og hraði myndhreyfinga</li>
+      <li xml:lang="it">Dimensioni e velocità dell'animazione configurabili</li>
+      <li xml:lang="ka">ზომებისა და ანიმაციის სიჩქარის მორგება</li>
+      <li xml:lang="ko">크기와 애니메이션 속도 설정</li>
+      <li xml:lang="lt">Konfigūruojami dydi ir animacijos greitis</li>
+      <li xml:lang="lv">Konfigurējams izmērs un animāciju ātrums</li>
+      <li xml:lang="nl">Instelbare afmetingen en animatiesnelheid</li>
+      <li xml:lang="nn">Tilpassbar storleik og animasjonsfart</li>
+      <li xml:lang="pl">Ustawialny rozmiar i szybkość animacji</li>
+      <li xml:lang="pt">Dimensões e velocidade de animação configuráveis</li>
+      <li xml:lang="pt-BR">Dimensões e velocidade de animação configuráveis</li>
+      <li xml:lang="ro">Dimensiuni și viteză de animație configurabile</li>
+      <li xml:lang="ru">Настраиваемые размеры и скорость анимации;</li>
+      <li xml:lang="sa">विन्यासयोग्याः आयामाः एनिमेशनवेगः च</li>
+      <li xml:lang="sk">Nastaviteľné rozmery a rýchlosť animácií</li>
+      <li xml:lang="sl">Nastavljive dimenzije in hitrost animacije</li>
+      <li xml:lang="sr">подесиве димензије и брзина анимације</li>
+      <li xml:lang="sr-Latn">podesive dimenzije i brzina animacije</li>
+      <li xml:lang="sr-ijekavian">подесиве димензије и брзина анимације</li>
+      <li xml:lang="sr-ijekavianlatin">podesive dimenzije i brzina animacije</li>
+      <li xml:lang="sv">Anpassningsbara dimensioner och animeringshastighet</li>
+      <li xml:lang="tr">Yapılandırılabilir boyutlar ve canlandırma hızı</li>
+      <li xml:lang="uk">Можливість налаштовування розмірів та швидкості анімації.</li>
+      <li xml:lang="zh-CN">可自定义尺寸和动效速度</li>
+      <li xml:lang="zh-TW">設定動畫速度與大小</li>
+      <li>Skinnable</li>
+      <li xml:lang="ar">قابل للتّخصيص</li>
+      <li xml:lang="az">Müxtəlif örtüklü</li>
+      <li xml:lang="be">Падтрымка абалонак</li>
+      <li xml:lang="bg">Смяна на облика с помощта на обложки</li>
+      <li xml:lang="ca">Es pot canviar l'aparença</li>
+      <li xml:lang="ca-valencia">Es pot canviar l'aparença</li>
+      <li xml:lang="cs">Upravitelný motiv vzhledu</li>
+      <li xml:lang="da">Kan bruge skins</li>
+      <li xml:lang="de">Anpassung der Oberfläche über Skin/Design</li>
+      <li xml:lang="el">Διαμορφώσιμα θέματα</li>
+      <li xml:lang="en-GB">Skinnable</li>
+      <li xml:lang="eo">Haŭtigebla</li>
+      <li xml:lang="es">Admite el uso de pieles</li>
+      <li xml:lang="et">Nahkade kasutamine</li>
+      <li xml:lang="eu">«Azal» aldagarriak onartzen ditu</li>
+      <li xml:lang="fi">Vaihdettava teema</li>
+      <li xml:lang="fr">Thèmes disponibles</li>
+      <li xml:lang="gl">O seu aspecto pode modificarse con temas.</li>
+      <li xml:lang="he">עיצוב גמיש</li>
+      <li xml:lang="hu">Témázható</li>
+      <li xml:lang="ia">Skinnable (i.e. con multe version de apparentia)</li>
+      <li xml:lang="id">Dapat di-skin</li>
+      <li xml:lang="is">Hægt að skipta um skinn</li>
+      <li xml:lang="it">Aspetto personalizzabile</li>
+      <li xml:lang="ka">შეცვლადი გარეგნობა</li>
+      <li xml:lang="ko">스킨</li>
+      <li xml:lang="lt">Keičiama išvaizda</li>
+      <li xml:lang="lv">Maināms izskats</li>
+      <li xml:lang="nl">Te voorzien van een skin</li>
+      <li xml:lang="nn">Støtte for fleire grafiske tema</li>
+      <li xml:lang="pl">Możliwość używania skórek</li>
+      <li xml:lang="pt">Visual personalizável</li>
+      <li xml:lang="pt-BR">Visual personalizável</li>
+      <li xml:lang="ro">Susține tematici personalizate</li>
+      <li xml:lang="ru">Поддержка стилей оформления;</li>
+      <li xml:lang="sa">चर्मणीयम्</li>
+      <li xml:lang="sk">Skinovateľné</li>
+      <li xml:lang="sl">Se da preoblačiti</li>
+      <li xml:lang="sr">подршка за маске</li>
+      <li xml:lang="sr-Latn">podrška za maske</li>
+      <li xml:lang="sr-ijekavian">подршка за маске</li>
+      <li xml:lang="sr-ijekavianlatin">podrška za maske</li>
+      <li xml:lang="sv">Kan använda skal</li>
+      <li xml:lang="tr">Temalanabilir</li>
+      <li xml:lang="uk">Можливість використання різних обрамлень («шкірок»).</li>
+      <li xml:lang="zh-CN">可更换主题</li>
+      <li xml:lang="zh-TW">Skinnable</li>
+      <li>Sophisticated D-Bus interface</li>
+      <li xml:lang="ar">واجهة D-Bus متطوّرة</li>
+      <li xml:lang="az">Yaxşı düşünülmüş D-Bus interfeysi</li>
+      <li xml:lang="be">Складаны інтэрфейс D-Bus</li>
+      <li xml:lang="bg">Софистичен интерфейс към D-Bus</li>
+      <li xml:lang="ca">Interfície de D-Bus sofisticada</li>
+      <li xml:lang="ca-valencia">Interfície de D-Bus sofisticada</li>
+      <li xml:lang="cs">Sofistikované rozhraní D-Bus</li>
+      <li xml:lang="da">Sofistikeret D-Bus-grænseflade</li>
+      <li xml:lang="de">Hoch entwickelte D-Bus-Schnittstelle</li>
+      <li xml:lang="el">Εκλεπτυσμένη D-Bus διεπαφή</li>
+      <li xml:lang="en-GB">Sophisticated D-Bus interface</li>
+      <li xml:lang="eo">Altnivela D-Bus-interfaco</li>
+      <li xml:lang="es">Interfaz D-Bus sofisticado</li>
+      <li xml:lang="et">Võimas D-Busi liides</li>
+      <li xml:lang="eu">D-Bus interfaze sofistikatua</li>
+      <li xml:lang="fi">Kehittynyt D-Bus-liittymä</li>
+      <li xml:lang="fr">Interface « D-Bus » sophistiquée</li>
+      <li xml:lang="gl">Sofisticada interface de D-Bus</li>
+      <li xml:lang="he">ממשק D-Bus מתוחכם</li>
+      <li xml:lang="hu">Kifinomult D-Bus interfész</li>
+      <li xml:lang="ia">Interfacie mundan de D-Bus</li>
+      <li xml:lang="id">Antarmuka D-Bus yang njlimet</li>
+      <li xml:lang="is">Þróað D-Bus viðmót</li>
+      <li xml:lang="it">Interfaccia D-Bus sofisticata</li>
+      <li xml:lang="ka">დახვეწილი D-Bus ინტერფეისი</li>
+      <li xml:lang="ko">D-Bus 인터페이스</li>
+      <li xml:lang="lt">Įmantri D-Bus sąsaja</li>
+      <li xml:lang="lv">Inteliģenta „D-Bus“ saskarne</li>
+      <li xml:lang="nl">Intelligent D-Bus-interface</li>
+      <li xml:lang="nn">Avansert D-Bus-grensesnitt</li>
+      <li xml:lang="pl">Zaawansowany interfejs D-Bus</li>
+      <li xml:lang="pt">Interface de D-Bus sofisticada</li>
+      <li xml:lang="pt-BR">Interface D-Bus sofisticada</li>
+      <li xml:lang="ro">Interfață D-Bus sofisticată</li>
+      <li xml:lang="ru">Поддержка интерфейса D-Bus.</li>
+      <li xml:lang="sa">परिष्कृतं D-Bus अन्तरफलकं</li>
+      <li xml:lang="sk">Sofistikované rozhranie </li>
+      <li xml:lang="sl">Napreden vmesnik z D-busom</li>
+      <li xml:lang="sr">свеобухватно д‑бус сучеље</li>
+      <li xml:lang="sr-Latn">sveobuhvatno D‑Bus sučelje</li>
+      <li xml:lang="sr-ijekavian">свеобухватно д‑бус сучеље</li>
+      <li xml:lang="sr-ijekavianlatin">sveobuhvatno D‑Bus sučelje</li>
+      <li xml:lang="sv">Sofistikerat D-Bus gränssnitt</li>
+      <li xml:lang="tr">Gelişmiş D-Bus arayüzü</li>
+      <li xml:lang="uk">Продуманий інтерфейс D-Bus.</li>
+      <li xml:lang="zh-CN">功能完善的 D-Bus 接口</li>
+      <li xml:lang="zh-TW">複雜的 D-Bus 介面</li>
+    </ul>
+  </description>
+  <content_rating type="oars-1.1"/>
+  <url type="homepage">https://apps.kde.org/Yakuake3rdScreen</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=Yakuake3rdScreen</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=Yakuake3rdScreen&amp;source=appdata</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://cdn.kde.org/screenshots/Yakuake3rdScreen/Yakuake3rdScreen.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>Yakuake3rdScreen</binary>
+  </provides>
+  <launchable type="desktop-id">org.kde.Yakuake3rdScreen.desktop</launchable>
+  <releases>
+    <release version="25.12.3" date="2026-03-05"/>
+    <release version="25.12.2" date="2026-02-05"/>
+    <release version="25.12.1" date="2026-01-08"/>
+    <release version="25.12.0" date="2025-12-11"/>
+    <release version="25.08.3" date="2025-11-06"/>
+    <release version="25.08.2" date="2025-10-09"/>
+    <release version="25.08.1" date="2025-09-11"/>
+    <release version="25.08.0" date="2025-08-14"/>
+    <release version="25.04.3" date="2025-07-03"/>
+    <release version="25.04.2" date="2025-06-05"/>
+    <release version="25.04.1" date="2025-05-08"/>
+    <release version="25.04.0" date="2025-04-17"/>
+    <release version="24.12.3" date="2025-03-06"/>
+    <release version="24.12.2" date="2025-02-06"/>
+    <release version="24.12.1" date="2025-01-09"/>
+    <release version="24.12.0" date="2024-12-12"/>
+    <release version="24.08.3" date="2024-11-07"/>
+    <release version="24.08.2" date="2024-10-10"/>
+    <release version="24.08.1" date="2024-09-12"/>
+    <release version="24.08.0" date="2024-08-22"/>
+    <release version="24.05.2" date="2024-07-04"/>
+    <release version="24.05.1" date="2024-06-13"/>
+    <release version="24.05.0" date="2024-05-23"/>
+    <release version="24.02.2" date="2024-04-11"/>
+    <release version="24.02.1" date="2024-03-21"/>
+    <release version="24.02.0" date="2024-02-28"/>
+    <release version="23.08.5" date="2024-02-15"/>
+  </releases>
+</component>

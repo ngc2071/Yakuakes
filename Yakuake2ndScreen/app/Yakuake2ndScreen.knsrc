@@ -1,4 +1,6 @@
 [KNewStuff3]
-Categories=Yakuake Skin
+Categories=Yakuake2ndScreen Skin
 Uncompress=always
 TargetDir=Yakuake2ndScreen/kns_skins
+# In case the entries are invalid or the user uninstalls them manually
+RemoveDeadEntries=true

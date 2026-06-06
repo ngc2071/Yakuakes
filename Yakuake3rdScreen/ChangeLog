@@ -39,7 +39,7 @@ Changes in 3.0:
 * Yakuake was ported to KDE Frameworks 5 and Qt 5.
 * A new default skin follows the Plasma 5 Breeze design.
 * Terminal focus is now preserved more reliably when closing and
-  reopening Yakuake.
+  reopening Yakuake3rdScreen.
 * Config changes made via the title bar menu are now synced to disk
   immediately, and thus preserved if Yakuake is killed instead of quit
   gracefully.
@@ -307,7 +307,7 @@ Changes in 2.9.1:
 * Starting Yakuake a second time now toggles the window state, making it
   possible to open and retract Yakuake from a panel button or by simply
   running the executable.
-* Disabled standard startup notifications ("Launch Feedback") for Yakuake.
+* Disabled standard startup notifications ("Launch Feedback") for Yakuake3rdScreen.
 * Fixed Open/Retract action not working with versions of KDE 4 trunk (4.1)
   after March 10th, 2008.
 * Fixed a bug that could cause actions also available from the tab context
@@ -439,7 +439,7 @@ Changes in 2.8:
 * Added keyboard shortcuts to switch to session 1 through 12.
 * Added keyboard shortcuts to adjust the width and height of the window.
 * Added an action and shortcut to paste the X11 selection buffer.
-* Added an action to quit Yakuake.
+* Added an action to quit Yakuake3rdScreen.
 * Made the quit warning with multiple open sessions behave consistently with
   Konsole.
 * Greatly expanded DCOP interface. Added various new calls corresponding to new
@@ -467,7 +467,7 @@ Changes in 2.8:
   code, this improves over the old preferences handling by avoiding unnecessary
   disk activity (and thus spurious hard drive spin-ups on laptop computers and
   other battery-bound devices).
-* Disabled startup notifications (i.e. KDE's bouncing cursor) for Yakuake.
+* Disabled startup notifications (i.e. KDE's bouncing cursor) for Yakuake3rdScreen.
 * Updated the installation colation of the .desktop menu file to conform to
   modern XDG standards.
 

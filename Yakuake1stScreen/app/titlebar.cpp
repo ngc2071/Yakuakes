@@ -1,43 +1,27 @@
 /*
-  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
-  Copyright (C) 2020 by Ryan McCoskrie <work@ryanmccoskrie.me>
+  SPDX-FileCopyrightText: 2008-2014 Eike Hein <hein@kde.org>
+  SPDX-FileCopyrightText: 2020 Ryan McCoskrie <work@ryanmccoskrie.me>
 
-  This program is free software; you can redistribute it and/or
-  modify it under the terms of the GNU General Public License as
-  published by the Free Software Foundation; either version 2 of
-  the License or (at your option) version 3 or any later version
-  accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy
-  defined in Section 14 of version 3 of the license.
-
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program. If not, see https://www.gnu.org/licenses/.
+  SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
-
 
 #include "titlebar.h"
 #include "mainwindow.h"
 #include "skin.h"
 
-#include <QFontDatabase>
-#include <QMenu>
-#include <QPushButton>
 #include <KLocalizedString>
+#include <QFontDatabase>
+#include <QPushButton>
 
-#include <QApplication>
 #include <QBitmap>
 #include <QPainter>
 
-TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
+TitleBar::TitleBar(MainWindow *mainWindow)
+    : QWidget(mainWindow)
 {
     setWhatsThis(xi18nc("@info:whatsthis",
-                       "<title>Title Bar</title>"
-                       "<para>The title bar displays the session title if available.</para>"));
+                        "<title>Title Bar</title>"
+                        "<para>The title bar displays the session title if available.</para>"));
 
     setAttribute(Qt::WA_OpaquePaintEvent);
 
@@ -69,13 +53,23 @@ TitleBar::TitleBar(MainWindow* mainWindow) : QWidget(mainWindow)
     connect(m_quitButton, SIGNAL(clicked()), mainWindow, SLOT(close()));
 }
 
-TitleBar::~TitleBar()
+TitleBar::~TitleBar() = default;
+
+void TitleBar::setVisible(bool visible)
 {
+    m_visible = visible;
+    if (m_visible) {
+        resize(width(), m_skin->titleBarBackgroundImage().height());
+    } else {
+        resize(width(), 0);
+    }
+
+    QWidget::setVisible(m_visible);
 }
 
 void TitleBar::applySkin()
 {
-    resize(width(), m_skin->titleBarBackgroundImage().height());
+    resize(width(), m_visible ? m_skin->titleBarBackgroundImage().height() : 0);
 
     m_focusButton->setStyleSheet(m_skin->titleBarFocusButtonStyleSheet());
     m_menuButton->setStyleSheet(m_skin->titleBarMenuButtonStyleSheet());
@@ -106,7 +100,7 @@ void TitleBar::moveButtons()
         m_quitButton->move(width() - m_skin->titleBarQuitButtonPosition().x(), m_skin->titleBarQuitButtonPosition().y());
 }
 
-void TitleBar::resizeEvent(QResizeEvent* event)
+void TitleBar::resizeEvent(QResizeEvent *event)
 {
     moveButtons();
 
@@ -115,18 +109,16 @@ void TitleBar::resizeEvent(QResizeEvent* event)
     QWidget::resizeEvent(event);
 }
 
-void TitleBar::paintEvent(QPaintEvent*)
+void TitleBar::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     painter.setPen(m_skin->titleBarTextColor());
 
-    const QPixmap& backgroundImage = m_skin->titleBarBackgroundImage();
-    const QPixmap& leftCornerImage = m_skin->titleBarLeftCornerImage();
-    const QPixmap& rightCornerImage = m_skin->titleBarRightCornerImage();
+    const QPixmap &backgroundImage = m_skin->titleBarBackgroundImage();
+    const QPixmap &leftCornerImage = m_skin->titleBarLeftCornerImage();
+    const QPixmap &rightCornerImage = m_skin->titleBarRightCornerImage();
 
-    painter.drawTiledPixmap(leftCornerImage.width(), 0,
-                            width() - leftCornerImage.width() - rightCornerImage.width(), height(),
-                            backgroundImage);
+    painter.drawTiledPixmap(leftCornerImage.width(), 0, width() - leftCornerImage.width() - rightCornerImage.width(), height(), backgroundImage);
 
     painter.drawPixmap(0, 0, leftCornerImage);
     painter.drawPixmap(width() - rightCornerImage.width(), 0, rightCornerImage);
@@ -135,29 +127,36 @@ void TitleBar::paintEvent(QPaintEvent*)
     font.setBold(m_skin->titleBarTextBold());
     painter.setFont(font);
 
-    const QString title = this->title();
-    if (m_skin->titleBarTextCentered() && width() > m_skin->titleBarTextPosition().x() + painter.fontMetrics().width(title) + m_focusButton->width() + m_quitButton->width() + m_menuButton->width())
-        painter.drawText(0, 0, width(), height(), Qt::AlignCenter, title);
+    const QString titleAsString = this->title();
+    if (m_skin->titleBarTextCentered()
+        && width() > m_skin->titleBarTextPosition().x() + painter.fontMetrics().horizontalAdvance(titleAsString) + m_focusButton->width()
+                + m_quitButton->width() + m_menuButton->width())
+        painter.drawText(0, 0, width(), height(), Qt::AlignCenter, titleAsString);
     else
-        painter.drawText(m_skin->titleBarTextPosition(), title);
+        painter.drawText(m_skin->titleBarTextPosition(), titleAsString);
 
     painter.end();
 }
 
-void TitleBar::mouseMoveEvent(QMouseEvent* event)
+void TitleBar::mouseMoveEvent(QMouseEvent *event)
 {
-    if(event->buttons() == Qt::LeftButton) {
-        //Dynamic cast needed to use getDesktopGeometry()
-        MainWindow* window = dynamic_cast<MainWindow*>( parent() );
+    if (event->buttons() == Qt::LeftButton) {
+        // Dynamic cast needed to use getDesktopGeometry()
+        MainWindow *window = dynamic_cast<MainWindow *>(parent());
+
+        // Ignore height adjustments in fullscreen mode
+        if (m_mainWindow->m_isFullscreen) {
+            event->ignore();
+            return;
+        }
 
         int maxHeight = window->getDesktopGeometry().height();
-        int newHeight = event->globalY() / (maxHeight / 100);
+        int newHeight = event->globalPosition().y() / (maxHeight / 100);
 
-        //Correct newHeight if mouse is dragged too far
-        if(newHeight > 100) {
+        // Correct newHeight if mouse is dragged too far
+        if (newHeight > 100) {
             newHeight = 100;
-        }
-        else if(newHeight < 10) {
+        } else if (newHeight < 10) {
             newHeight = 10;
         }
 
@@ -169,16 +168,15 @@ void TitleBar::mouseMoveEvent(QMouseEvent* event)
 
 void TitleBar::updateMask()
 {
-    const QPixmap& leftCornerImage = m_skin->titleBarLeftCornerImage();
-    const QPixmap& rightCornerImage = m_skin->titleBarRightCornerImage();
+    const QPixmap &leftCornerImage = m_skin->titleBarLeftCornerImage();
+    const QPixmap &rightCornerImage = m_skin->titleBarRightCornerImage();
 
     QRegion leftCornerRegion = leftCornerImage.hasAlpha() ? QRegion(leftCornerImage.mask()) : QRegion(leftCornerImage.rect());
     QRegion rightCornerRegion = rightCornerImage.hasAlpha() ? QRegion(rightCornerImage.mask()) : QRegion(rightCornerImage.rect());
 
     QRegion mask = leftCornerRegion;
 
-    mask += QRegion(QRect(0, 0, width() - leftCornerImage.width() - rightCornerImage.width(),
-        height())).translated(leftCornerImage.width(), 0);
+    mask += QRegion(QRect(0, 0, width() - leftCornerImage.width() - rightCornerImage.width(), height())).translated(leftCornerImage.width(), 0);
 
     mask += rightCornerRegion.translated(width() - rightCornerImage.width(), 0);
 
@@ -190,12 +188,27 @@ void TitleBar::updateMenu()
     m_menuButton->setMenu(m_mainWindow->menu());
 }
 
+void TitleBar::updateCursor()
+{
+    if (m_mainWindow->m_isFullscreen) {
+        unsetCursor();
+    } else {
+        setCursor(Qt::SizeVerCursor);
+    }
+}
+
 void TitleBar::setFocusButtonState(bool checked)
 {
     m_focusButton->setChecked(checked);
 }
 
-QString TitleBar::title()
+void TitleBar::enterEvent(QEnterEvent *event)
+{
+    updateCursor();
+    QWidget::enterEvent(event);
+}
+
+QString TitleBar::title() const
 {
     if (!m_skin->titleBarText().isEmpty() && !m_title.isEmpty())
         return m_title + QStringLiteral(" - ") + m_skin->titleBarText();
@@ -205,9 +218,11 @@ QString TitleBar::title()
         return m_title;
 }
 
-void TitleBar::setTitle(const QString& title)
+void TitleBar::setTitle(const QString &title)
 {
     m_title = title;
 
     repaint();
 }
+
+#include "moc_titlebar.cpp"

@@ -1,15 +1,21 @@
-project(Yakuake3rdScreen)
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 # KDE Application Version, managed by release script
-set (RELEASE_SERVICE_VERSION_MAJOR "20")
-set (RELEASE_SERVICE_VERSION_MINOR "11")
+set (RELEASE_SERVICE_VERSION_MAJOR "26")
+set (RELEASE_SERVICE_VERSION_MINOR "07")
 set (RELEASE_SERVICE_VERSION_MICRO "70")
 set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
 
-cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
-set (QT_MIN_VERSION "5.2.0")
+project(Yakuake3rdScreen VERSION ${RELEASE_SERVICE_VERSION})
 
-find_package(ECM 1.2.0 REQUIRED NO_MODULE)
+# KF6 only
+set(QT_MIN_VERSION "6.5.0")
+set(KF_MIN_VERSION "6.3.0")
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
@@ -18,13 +24,23 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
 include(ECMAddAppIcon)
 include(FeatureSummary)
+include(KDEClangFormat)
+include(KDEGitCommitHooks)
+include(ECMDeprecationSettings)
+include(ECMGenerateDBusServiceFile)
+
+ecm_set_disabled_deprecation_versions(QT 6.10.0
+    KF 6.17.0
+    )
 
 ### Security concerns about sendText and runCommand dbus methods being public
-option(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS "yakuake: remove runCommand dbus methods" OFF)
+option(REMOVE_SENDTEXT_RUNCOMMAND_DBUS_METHODS "Yakuake3rdScreen: remove runCommand dbus methods" OFF)
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg)
-
-find_package(KF5 5.60 REQUIRED
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Svg WaylandClient)
+if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
+   find_package(Qt6GuiPrivate ${QT_MIN_VERSION} REQUIRED NO_MODULE)
+endif()
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     Archive
     Config
     CoreAddons
@@ -40,38 +56,33 @@ find_package(KF5 5.60 REQUIRED
     Parts
     WidgetsAddons
     WindowSystem
+    StatusNotifierItem
+    ColorScheme
 )
 
-if(NOT APPLE)
-  find_package(X11)
-  set(HAVE_X11 ${X11_FOUND})
+find_package(PlasmaWaylandProtocols REQUIRED)
 
-  if(X11_FOUND)
-    find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
-  endif(X11_FOUND)
+option(WITH_X11 "Build with X11 integration" ON)
+if(WITH_X11)
+    set(HAVE_X11 TRUE)
+    find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Gui)
+    find_package(XCB REQUIRED COMPONENTS RANDR UTIL)
+else()
+    set(HAVE_X11 FALSE)
+endif()
 
-  find_package(KF5Wayland 5.5 CONFIG)
-  set(HAVE_KWAYLAND ${KF5Wayland_FOUND})
-endif(NOT APPLE)
-
-add_definitions(
-  -DQT_USE_QSTRINGBUILDER
-  -DQT_NO_CAST_TO_ASCII
-  -DQT_NO_CAST_FROM_ASCII
-  -DQT_STRICT_ITERATORS
-  -DQT_NO_URL_CAST_FROM_STRING
-  -DQT_NO_CAST_FROM_BYTEARRAY
-  -DQT_NO_SIGNALS_SLOTS_KEYWORDS
-  -DQT_USE_FAST_OPERATOR_PLUS
-)
-
-configure_file(org.kde.yakuake.service.in
-	       ${CMAKE_CURRENT_BINARY_DIR}/org.kde.yakuake.service)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.yakuake.service
-	DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+find_package(KWayland CONFIG)
+set(HAVE_KWAYLAND ${KWayland_FOUND})
 
 add_subdirectory(app)
 add_subdirectory(data)
 
-feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+ki18n_install(po)
+
+# add clang-format target for all our real source files
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
+
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

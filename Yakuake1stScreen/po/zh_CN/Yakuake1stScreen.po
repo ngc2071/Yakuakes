@@ -1,0 +1,1690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-04-08 00:50+0000\n"
+"PO-Revision-Date: 2024-04-22 15:58\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf6-trunk/messages/yakuake/Yakuake1stScreen.pot\n"
+"X-Crowdin-File-ID: 46452\n"
+
+#: app/config/appearancesettings.cpp:151
+#, kde-kuit-format
+msgctxt "@item:inlistbox Unknown skin author"
+msgid "Unknown"
+msgstr "未知"
+
+#: app/config/appearancesettings.cpp:196
+#, kde-format
+msgctxt "@title:window"
+msgid "Select the skin archive to install"
+msgstr "选择要安装的皮肤包"
+
+#: app/config/appearancesettings.cpp:242
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Unable to list the skin archive contents."
+msgstr "无法列出该皮肤包的内容。"
+
+#: app/config/appearancesettings.cpp:274
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"This skin appears to be already installed and you lack the required "
+"permissions to overwrite it."
+msgstr "此皮肤似乎已经安装，而您没有覆盖它的权限。"
+
+#: app/config/appearancesettings.cpp:279
+#, kde-kuit-format
+msgctxt "@info"
+msgid "This skin appears to be already installed. Do you want to overwrite it?"
+msgstr "此皮肤似乎已经安装。您想要覆盖它吗？"
+
+#: app/config/appearancesettings.cpp:280
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Skin Already Exists"
+msgstr "皮肤已经存在"
+
+#: app/config/appearancesettings.cpp:281
+#, kde-kuit-format
+msgctxt "@action:button"
+msgid "Reinstall Skin"
+msgstr "重新安装皮肤"
+
+#: app/config/appearancesettings.cpp:299
+#, kde-kuit-format
+msgctxt "@title:Window"
+msgid "Could Not Delete Skin"
+msgstr "无法删除皮肤"
+
+#: app/config/appearancesettings.cpp:324
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Unable to locate required files in the skin archive.<nl/><nl/>The archive "
+"appears to be invalid."
+msgstr "无法在皮肤压缩包中定位文件。<nl/><nl/>该压缩文件可能无效。"
+
+#: app/config/appearancesettings.cpp:327
+#, kde-kuit-format
+msgctxt "@info"
+msgid "The skin archive file could not be opened."
+msgstr "无法打开此皮肤包文件。"
+
+#: app/config/appearancesettings.cpp:332
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Cannot Install Skin"
+msgstr "无法安装皮肤"
+
+#: app/config/appearancesettings.cpp:376
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to remove \"%1\" by %2?"
+msgstr "您想要移除“%1” (作者：%2) 吗？"
+
+#: app/config/appearancesettings.cpp:377
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Remove Skin"
+msgstr "移除皮肤"
+
+#: app/config/appearancesettings.cpp:471
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The following skin is missing required files. Thus it was removed:<ul>%2</ul>"
+msgid_plural ""
+"The following skins are missing required files. Thus they were removed:<ul>"
+"%2</ul>"
+msgstr[0] "下列皮肤由于缺少必要的文件而被移除：<ul>%2</ul>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: app/config/appearancesettings.ui:29 app/config/behaviorsettings.ui:20
+#, kde-format
+msgctxt "@title:group Group box label"
+msgid "General"
+msgstr "常规"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
+#: app/config/appearancesettings.ui:35
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Enabling this option will make Yakuake1stScreen briefly display a colored overlay "
+"above the newly focused terminal when moving focus between multiple "
+"terminals in a session, as well as over the currently focused terminal when "
+"switching to a session with multiple terminals."
+msgstr ""
+"启用该选项后，Yakuake1stScreen 将在同一个会话中的不同终端之间切换焦点时短暂高亮显示刚"
+"刚取得焦点的终端；切换到打开了多个终端的会话时也将短暂高亮显示当前取得焦点的"
+"终端。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TerminalHighlightOnManualActivation)
+#: app/config/appearancesettings.ui:38
+#, kde-format
+msgctxt "@option:check"
+msgid "Highlight terminals when moving focus between them"
+msgstr "高亮显示刚刚取得焦点的终端"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_HideSkinBorders)
+#: app/config/appearancesettings.ui:45
+#, kde-format
+msgid "Hide borders"
+msgstr "隐藏边框"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: app/config/appearancesettings.ui:55
+#, kde-format
+msgctxt "@title:group"
+msgid "Window Background"
+msgstr "窗口背景"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
+#: app/config/appearancesettings.ui:63
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Background color:"
+msgstr "背景色："
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_Translucency)
+#: app/config/appearancesettings.ui:92
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Translucency requires support by the selected skin as well as your desktop "
+"environment. The default skin supports translucency."
+msgstr "半透明特性需要皮肤和桌面环境同时支持才能使用。默认皮肤支持半透明特性。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Translucency)
+#: app/config/appearancesettings.ui:95
+#, kde-format
+msgctxt "@option:check"
+msgid "Use skin translucency if supported"
+msgstr "使用半透明皮肤 (如果支持)"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundColorOpacityLabel)
+#: app/config/appearancesettings.ui:126
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Background color opacity:"
+msgstr "背景色不透明度："
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_BackgroundColorOpacity)
+#: app/config/appearancesettings.ui:136
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"When using translucency, the background color will be filled in using the "
+"given opacity before the skin elements are painted on top of the background. "
+"This allows influencing the opacity and color tint of translucent areas of "
+"the skin."
+msgstr ""
+"当使用半透明背景色时，背景色将先使用此处设置的不透明度进行填充，然后再绘制到"
+"背景元素之上。此特性将影响皮肤的半透明区域的不透明度和色调。"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Width)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Height)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_BackgroundColorOpacity)
+#: app/config/appearancesettings.ui:139 app/config/windowsettings.ui:146
+#: app/config/windowsettings.ui:200
+#, no-c-format, kde-format
+msgctxt "@label Spinbox unit suffix"
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: app/config/appearancesettings.ui:170
+#, kde-format
+msgctxt "@title:group"
+msgid "Skin"
+msgstr "皮肤"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, ghnsButton)
+#: app/config/appearancesettings.ui:176
+#, kde-format
+msgctxt "@action:button"
+msgid "Get New Skins..."
+msgstr "获取新皮肤..."
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: app/config/appearancesettings.ui:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove Skin"
+msgstr "移除皮肤"
+
+#. i18n: ectx: property (text), widget (QPushButton, installButton)
+#: app/config/appearancesettings.ui:196
+#, kde-format
+msgctxt "@action:button"
+msgid "Install Skin..."
+msgstr "安装皮肤..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
+#: app/config/behaviorsettings.ui:26
+#, kde-format
+msgctxt "@option:check"
+msgid "Focus terminals when the mouse pointer is moved over them"
+msgstr "鼠标指针所在的终端自动取得焦点"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_ToggleToFocus)
+#: app/config/behaviorsettings.ui:42
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, the shortcut normally used to open and retract "
+"the window will give it focus, rather than close it, if it has previously "
+"lost focus. Unless the window is set to show on all virtual desktops, this "
+"may cause the window manager to switch to the virtual desktop it currently "
+"resides on."
+msgstr ""
+"启用此选项后，当 Yakuake 窗口失去焦点时，正常情况下用于展开/折叠 Yakuake1stScreen 窗口"
+"的快捷键将不会折叠窗口，而是为该窗口取得焦点。除非 Yakuake1stScreen 窗口已配置为在所有"
+"虚拟桌面上显示，否则按下该快捷键时窗口管理器将会切换到 Yakuake1stScreen 窗口所在的虚拟"
+"桌面。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToggleToFocus)
+#: app/config/behaviorsettings.ui:45
+#, kde-format
+msgctxt "@option:check"
+msgid "Use Open/Retract action to focus window"
+msgstr "使用展开/折叠操作来为 Yakuake1stScreen 窗口取得焦点"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepAbove)
+#: app/config/behaviorsettings.ui:61
+#, kde-format
+msgctxt "@option:check"
+msgid "Keep window above other windows"
+msgstr "置顶显示 Yakuake1stScreen 窗口"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_OpenAfterStart)
+#: app/config/behaviorsettings.ui:84
+#, kde-format
+msgctxt "@option:check"
+msgid "Open window after program start"
+msgstr "Yakuake1stScreen 启动后展开窗口"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_PollMouse)
+#: app/config/behaviorsettings.ui:91
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, the window will automatically open when the mouse "
+"pointer is moved to the same edge of the screen that it would open on when "
+"using the shortcut."
+msgstr ""
+"启用此选项后，当鼠标指针移动到 Yakuake1stScreen 窗口折叠的屏幕边缘时将自动展开窗口 (按"
+"下展开/折叠快捷键时窗口所在的屏幕边缘)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PollMouse)
+#: app/config/behaviorsettings.ui:94
+#, kde-format
+msgctxt "@option:check"
+msgid "Open window when the mouse pointer touches the screen edge"
+msgstr "鼠标指针触碰屏幕边缘时展开窗口"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RememberFullscreen)
+#: app/config/behaviorsettings.ui:101
+#, kde-format
+msgid "Remember and restore window fullscreen state"
+msgstr "记住并恢复窗口全屏状态"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowSystrayIcon)
+#: app/config/behaviorsettings.ui:108
+#, kde-format
+msgid "Show system tray icon"
+msgstr "显示系统托盘图标"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpen)
+#: app/config/behaviorsettings.ui:118
+#, kde-format
+msgctxt "@option:check"
+msgid "Keep window open when it loses focus"
+msgstr "窗口失去焦点时保持展开"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeepOpenAfterLastSessionCloses)
+#: app/config/behaviorsettings.ui:141
+#, kde-format
+msgctxt "@option:check"
+msgid "Keep window open after the last session is closed"
+msgstr "最后一个会话关闭时保持窗口展开"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: app/config/behaviorsettings.ui:151
+#, kde-format
+msgctxt "@title:group"
+msgid "Dialogs"
+msgstr "对话框"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ConfirmQuit)
+#: app/config/behaviorsettings.ui:157
+#, kde-format
+msgctxt "@option:check"
+msgid "Confirm quit when more than one session is open"
+msgstr "打开多个会话时显示确认退出对话框"
+
+#: app/config/skinlistdelegate.cpp:124 app/config/skinlistdelegate.cpp:164
+#, kde-kuit-format
+msgctxt "@item:intext"
+msgid "by %1"
+msgstr "作者：%1"
+
+#: app/config/windowsettings.cpp:19
+#, kde-kuit-format
+msgctxt "@item:inlistbox"
+msgid "Screen %1"
+msgstr "屏幕 %1"
+
+#: app/config/windowsettings.cpp:99 app/mainwindow.cpp:675
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Hiding Title Bar"
+msgstr "隐藏标题栏"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_0)
+#: app/config/windowsettings.ui:32
+#, kde-format
+msgid "Title Bar"
+msgstr "标题栏"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTitleBar)
+#: app/config/windowsettings.ui:38
+#, kde-format
+msgid "Show title bar"
+msgstr "显示标题栏"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: app/config/windowsettings.ui:54
+#, kde-format
+msgctxt "@title:group"
+msgid "Tab Bar"
+msgstr "标签页栏"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_DynamicTabTitles)
+#: app/config/windowsettings.ui:69
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, the information about the active terminal's "
+"contents that is normally shown in the title bar will also be shown on the "
+"tab bar. You can modify the format of the information in the terminal "
+"profile."
+msgstr ""
+"启用此选项后，平时在标题栏上显示的活动终端内容信息将同时在标签页栏上显示。您"
+"可以在终端配置方案中修改这些信息的显示格式。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_DynamicTabTitles)
+#: app/config/windowsettings.ui:72
+#, kde-format
+msgctxt "@option:check"
+msgid "Show title bar contents in tab labels"
+msgstr "在标签页上显示标题栏信息"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowTabBar)
+#: app/config/windowsettings.ui:95
+#, kde-format
+msgctxt "@option:check"
+msgid "Show the tab bar"
+msgstr "显示标签页栏"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: app/config/windowsettings.ui:105
+#, kde-format
+msgctxt "@title:group"
+msgid "Size and Animation"
+msgstr "大小和动效"
+
+#. i18n: ectx: property (text), widget (QLabel, widthLabel)
+#: app/config/windowsettings.ui:111
+#, kde-format
+msgctxt "@label:slider"
+msgid "Width:"
+msgstr "宽度："
+
+#. i18n: ectx: property (text), widget (QLabel, heightLabel)
+#: app/config/windowsettings.ui:165
+#, kde-format
+msgctxt "@label:slider"
+msgid "Height:"
+msgstr "高度："
+
+#. i18n: ectx: property (text), widget (QLabel, durationLabel)
+#: app/config/windowsettings.ui:219
+#, kde-format
+msgctxt "@label:slider"
+msgid "Duration:"
+msgstr "持续时间："
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, framesSpinBox)
+#: app/config/windowsettings.ui:251
+#, kde-format
+msgctxt "@label Spinbox unit suffix"
+msgid "ms"
+msgstr " 毫秒"
+
+#. i18n: ectx: property (prefix), widget (QSpinBox, framesSpinBox)
+#: app/config/windowsettings.ui:254
+#, kde-format
+msgctxt "@label Spinbox unit prefix"
+msgid "~"
+msgstr "~"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_UseWMAssist)
+#: app/config/windowsettings.ui:270
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If this option is enabled, Yakuake1stScreen will ask the window manager to perform "
+"the window open/retract animation. If the window manager is unable to "
+"provide the requested service, Yakuake1stScreen will fall back to an animation "
+"strategy of progressively adjusting the window mask."
+msgstr ""
+"启用此选项后，Yakuake1stScreen 将要求窗口管理器在展开/折叠窗口时绘制动效。如果窗口管理"
+"器无法提供所需功能，Yakuake1stScreen 将采取后备的动效策略，通过逐步调整窗口蒙版的方式"
+"来实现动效。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseWMAssist)
+#: app/config/windowsettings.ui:273
+#, kde-format
+msgctxt "@option:check"
+msgid "Ask the window manager to perform the animation"
+msgstr "要求窗口管理器绘制动效"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: app/config/windowsettings.ui:283
+#, kde-format
+msgctxt "@title:group"
+msgid "Position"
+msgstr "位置"
+
+#. i18n: ectx: property (text), widget (QLabel, leftLabel)
+#: app/config/windowsettings.ui:291
+#, kde-format
+msgctxt "@item:inrange Direction to move the window in"
+msgid "Left"
+msgstr "左"
+
+#. i18n: ectx: property (text), widget (QLabel, rightLabel)
+#: app/config/windowsettings.ui:323
+#, kde-format
+msgctxt "@item:inrange Direction to move the window in"
+msgid "Right"
+msgstr "右"
+
+#. i18n: ectx: property (text), widget (QLabel, screenLabel)
+#: app/config/windowsettings.ui:337
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Open on screen:"
+msgstr "窗口展开的屏幕："
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
+#: app/config/windowsettings.ui:348
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "At mouse location"
+msgstr "鼠标所在的屏幕"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Screen)
+#: app/config/windowsettings.ui:353
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Screen 1"
+msgstr "屏幕 1"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowOnAllDesktops)
+#: app/config/windowsettings.ui:376
+#, kde-format
+msgctxt "@option:check"
+msgid "Show on all desktops"
+msgstr "在所有桌面上显示"
+
+#. i18n: ectx: label, entry (Screen), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:9
+#, kde-format
+msgctxt "@label"
+msgid "Screen to use"
+msgstr "使用的屏幕"
+
+#. i18n: ectx: whatsthis, entry (Screen), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:10
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"The screen on which the application window will appear. 0 is understood to "
+"be the screen the mouse pointer is on."
+msgstr "Yakuake1stScreen 窗口所在的屏幕。0 代表鼠标指针所在的屏幕。"
+
+#. i18n: ectx: label, entry (Width), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:14
+#, kde-format
+msgctxt "@label"
+msgid "Window width"
+msgstr "窗口宽度"
+
+#. i18n: ectx: whatsthis, entry (Width), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:15
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Width of the application window as a percentage of the screen."
+msgstr "Yakuake1stScreen 窗口的宽度 (屏幕宽度的百分比)"
+
+#. i18n: ectx: label, entry (Height), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:21
+#, kde-format
+msgctxt "@label"
+msgid "Window height"
+msgstr "窗口高度"
+
+#. i18n: ectx: whatsthis, entry (Height), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:22
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Height of the application window as a percentage of the screen."
+msgstr "Yakuake1stScreen 窗口的高度 (屏幕高度的百分比)"
+
+#. i18n: ectx: label, entry (Position), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:28
+#, kde-format
+msgctxt "@label"
+msgid "Window position"
+msgstr "窗口位置"
+
+#. i18n: ectx: whatsthis, entry (Position), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:29
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Center point of the application window, as a percentage, measured from the "
+"left-hand edge of the screen."
+msgstr "Yakuake1stScreen 窗口的中心点位置 (距离左边缘的屏幕百分比)"
+
+#. i18n: ectx: label, entry (ShowOnAllDesktops), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:35
+#, kde-format
+msgctxt "@label"
+msgid "Show window on all desktops"
+msgstr "在所有桌面上显示窗口"
+
+#. i18n: ectx: whatsthis, entry (ShowOnAllDesktops), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:36
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show the window on all desktops."
+msgstr "是否在所有桌面上显示 Yakuake1stScreen 窗口。"
+
+#. i18n: ectx: label, entry (KeepOpen), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:40
+#, kde-format
+msgctxt "@label"
+msgid "Keep window open"
+msgstr "保持窗口展开"
+
+#. i18n: ectx: whatsthis, entry (KeepOpen), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:41
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to keep the application window open when it loses focus."
+msgstr "是否让 Yakuake1stScreen 窗口在失去焦点时保持展开状态。"
+
+#. i18n: ectx: label, entry (KeepOpenAfterLastSessionCloses), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:45
+#, kde-format
+msgctxt "@label"
+msgid "Keep window open after last session closes"
+msgstr "关闭最后一个会话后保持窗口展开"
+
+#. i18n: ectx: whatsthis, entry (KeepOpenAfterLastSessionCloses), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:46
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to keep the application window open after the last session is closed."
+msgstr "关闭最后一个会话关闭之后是否保持 Yakuake1stScreen 窗口展开。"
+
+#. i18n: ectx: label, entry (ToggleToFocus), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:50
+#, kde-format
+msgctxt "@label"
+msgid "Use open/retract shortcut to focus window"
+msgstr "使用展开/折叠快捷键来为 Yakuake1stScreen 窗口取得焦点"
+
+#. i18n: ectx: whatsthis, entry (ToggleToFocus), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:51
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether the open/retract keyboard shortcut can be used to focus the "
+"application window when it is already open."
+msgstr "当 Yakuake1stScreen 窗口已经打开时，是否使用展开/折叠快捷键来为窗口取得焦点。"
+
+#. i18n: ectx: label, entry (KeepAbove), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:55
+#, kde-format
+msgctxt "@label"
+msgid "Keep window on top"
+msgstr "置顶显示 Yakuake1stScreen 窗口"
+
+#. i18n: ectx: whatsthis, entry (KeepAbove), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:56
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to keep the application window above other windows on the screen."
+msgstr "是否让 Yakuake1stScreen 窗口总是显示在屏幕的其他窗口之上。"
+
+#. i18n: ectx: label, entry (ShowTitleBar), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:60
+#, kde-format
+msgctxt "@label"
+msgid "Show title bar"
+msgstr "显示标题栏"
+
+#. i18n: ectx: whatsthis, entry (ShowTitleBar), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:61
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show the title bar in the application window."
+msgstr "是否在 Yakuake1stScreen 窗口中显示标题栏。"
+
+#. i18n: ectx: label, entry (ShowTabBar), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:65
+#, kde-format
+msgctxt "@label"
+msgid "Show tab bar"
+msgstr "显示标签页栏"
+
+#. i18n: ectx: whatsthis, entry (ShowTabBar), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:66
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show the tab bar in the application window."
+msgstr "是否在 Yakuake1stScreen 窗口中显示标签页栏。"
+
+#. i18n: ectx: label, entry (DynamicTabTitles), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:70
+#, kde-format
+msgctxt "@label"
+msgid "Dynamic tab titles"
+msgstr "动态更新标签页标题"
+
+#. i18n: ectx: whatsthis, entry (DynamicTabTitles), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:71
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to update tab titles along with the title bar."
+msgstr "是否与标题栏同步更新标签页的标题文本。"
+
+#. i18n: ectx: label, entry (ShowSystrayIcon), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:75
+#, kde-format
+msgctxt "@label"
+msgid "Show a system tray icon"
+msgstr "显示系统托盘图标"
+
+#. i18n: ectx: whatsthis, entry (ShowSystrayIcon), group (Window)
+#: app/config/Yakuake1stScreen.kcfg:76
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to show a system tray icon."
+msgstr "是否显示系统托盘图标。"
+
+#. i18n: ectx: label, entry (FocusFollowsMouse), group (Behavior)
+#: app/config/Yakuake1stScreen.kcfg:82
+#, kde-format
+msgctxt "@label"
+msgid "Focus follows mouse"
+msgstr "鼠标光标所处终端自动取得焦点"
+
+#. i18n: ectx: whatsthis, entry (FocusFollowsMouse), group (Behavior)
+#: app/config/Yakuake1stScreen.kcfg:83
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether an individual terminal in a session will be given focus when the "
+"mouse pointer is moved above it."
+msgstr "当鼠标指针移动到某个终端之上时是否为该终端取得焦点。"
+
+#. i18n: ectx: label, entry (OpenAfterStart), group (Behavior)
+#: app/config/Yakuake1stScreen.kcfg:87
+#, kde-format
+msgctxt "@label"
+msgid "Open after start"
+msgstr "启动后展开窗口"
+
+#. i18n: ectx: whatsthis, entry (OpenAfterStart), group (Behavior)
+#: app/config/Yakuake1stScreen.kcfg:88
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether the application window should be opened after program start."
+msgstr "是否让 Yakuake1stScreen 在启动之后展开窗口。"
+
+#. i18n: ectx: label, entry (RememberFullscreen), group (Behavior)
+#: app/config/Yakuake1stScreen.kcfg:92
+#, kde-format
+msgctxt "@label"
+msgid "Remember window fullscreen state"
+msgstr "记住窗口全屏状态"
+
+#. i18n: ectx: whatsthis, entry (RememberFullscreen), group (Behavior)
+#: app/config/Yakuake1stScreen.kcfg:93
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether the window will be shown fullscreen again when it has been "
+"previously."
+msgstr "如果窗口此前是全屏的，是否在展开时再次以全屏显示。"
+
+#. i18n: ectx: label, entry (Skin), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:99
+#, kde-format
+msgctxt "@label"
+msgid "Skin"
+msgstr "皮肤"
+
+#. i18n: ectx: whatsthis, entry (Skin), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:100
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The skin to be used by the application window."
+msgstr "Yakuake1stScreen 窗口使用的皮肤。"
+
+#. i18n: ectx: label, entry (SkinInstalledWithKns), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:104
+#, kde-format
+msgctxt "@label"
+msgid "Skin installed by KNS"
+msgstr "此皮肤通过 KDE 在线商店安装"
+
+#. i18n: ectx: whatsthis, entry (SkinInstalledWithKns), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:105
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether the currently active skin was installed via KNS."
+msgstr "当前皮肤是否通过 KDE 在线商店安装。"
+
+#. i18n: ectx: label, entry (Translucency), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:109
+#, kde-format
+msgctxt "@label"
+msgid "Use translucent background"
+msgstr "使用半透明背景"
+
+#. i18n: ectx: whatsthis, entry (Translucency), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:110
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether to make use of XComposite ARGB translucency."
+msgstr "是否使用 XComposite 的 ARGB 半透明特性。"
+
+#. i18n: ectx: label, entry (BackgroundColor), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:114
+#, kde-format
+msgctxt "@label"
+msgid "Window background color"
+msgstr "窗口背景色"
+
+#. i18n: ectx: whatsthis, entry (BackgroundColor), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:115
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Background color painted below skin elements."
+msgstr "在皮肤元素下方绘制的背景色。"
+
+#. i18n: ectx: label, entry (BackgroundColorOpacity), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:119
+#, kde-format
+msgctxt "@label"
+msgid "Background color opacity"
+msgstr "背景色不透明度"
+
+#. i18n: ectx: whatsthis, entry (BackgroundColorOpacity), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:120
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The opacity of the background color fill when using translucency."
+msgstr "当使用半透明特性时背景色填充的不透明度。"
+
+#. i18n: ectx: label, entry (TerminalHighlightOnManualActivation), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:126
+#, kde-format
+msgctxt "@label"
+msgid "Highlight newly focused terminals"
+msgstr "高亮显示刚刚取得焦点的终端"
+
+#. i18n: ectx: whatsthis, entry (TerminalHighlightOnManualActivation), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:127
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to briefly display a colored overlay above the newly focused "
+"terminal when moving focus between multiple terminals in a session, as well "
+"as over the currently focused terminal when switching to a session with "
+"multiple terminals."
+msgstr ""
+"是否在同一个会话中的不同终端之间切换焦点时短暂高亮显示刚刚取得焦点的终端；切"
+"换到打开了多个终端的会话时也将短暂高亮显示当前取得焦点的终端。"
+
+#. i18n: ectx: label, entry (HideSkinBorders), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:131
+#, kde-format
+msgctxt "@label"
+msgid "Hide the borders defined by the skin"
+msgstr "隐藏皮肤定义的窗口边框"
+
+#. i18n: ectx: whatsthis, entry (HideSkinBorders), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:132
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Skins can define borders around the terminal including the tabbar. This "
+"option, when turned on, will overwrite the border settings defined by the "
+"skin and hide all borders."
+msgstr ""
+"皮肤可以定义终端四周的边框样式及标签页栏。开启此选项后，会覆盖掉所有皮肤定义"
+"的边框设置并隐藏所有边框。"
+
+#. i18n: ectx: label, entry (TerminalHighlightOpacity), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:136
+#, kde-format
+msgctxt "@label"
+msgid "Terminal highlight opacity"
+msgstr "终端高亮颜色不透明度"
+
+#. i18n: ectx: whatsthis, entry (TerminalHighlightOpacity), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:137
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The opacity of the colored overlay used to highlight a terminal."
+msgstr "用于终端在高亮显示时叠加的颜色的不透明度。"
+
+#. i18n: ectx: label, entry (TerminalHighlightDuration), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:143
+#, kde-format
+msgctxt "@label"
+msgid "Terminal highlight duration"
+msgstr "终端高亮显示持续时间"
+
+#. i18n: ectx: whatsthis, entry (TerminalHighlightDuration), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:144
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The duration of the terminal highlight overlay."
+msgstr "终端高亮显示的持续时间。"
+
+#. i18n: ectx: label, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:150
+#, kde-format
+msgctxt "@label"
+msgid "Keyboard input block indicator color"
+msgstr "键盘输入阻塞指示器颜色"
+
+#. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorColor), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:151
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The color of the keyboard input block indicator overlay."
+msgstr "键盘输入阻塞指示器的叠加颜色。"
+
+#. i18n: ectx: label, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:155
+#, kde-format
+msgctxt "@label"
+msgid "Keyboard input block indicator opacity"
+msgstr "键盘输入阻塞指示器不透明度"
+
+#. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorOpacity), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:156
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The opacity of the keyboard input block indicator overlay."
+msgstr "键盘输入阻塞指示器叠加颜色的不透明度。"
+
+#. i18n: ectx: label, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:162
+#, kde-format
+msgctxt "@label"
+msgid "Keyboard input block indicator duration"
+msgstr "键盘输入阻塞指示器持续时间"
+
+#. i18n: ectx: whatsthis, entry (KeyboardInputBlockIndicatorDuration), group (Appearance)
+#: app/config/Yakuake1stScreen.kcfg:163
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The duration of the keyboard input block indicator overlay."
+msgstr "键盘输入阻塞指示器显示的持续时间。"
+
+#. i18n: ectx: label, entry (UseWMAssist), group (Animation)
+#: app/config/Yakuake1stScreen.kcfg:171
+#, kde-format
+msgctxt "@label"
+msgid "Attempt to use the window manager to animate the window"
+msgstr "尝试通过窗口管理器绘制窗口动效"
+
+#. i18n: ectx: whatsthis, entry (UseWMAssist), group (Animation)
+#: app/config/Yakuake1stScreen.kcfg:172
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to try and let the window manager perform the window open/retract "
+"animation. Yakuake1stScreen will fall back to an animation strategy of progressively "
+"adjusting the window mask if the window manager is unable to provide the "
+"requested service."
+msgstr ""
+"是否尝试要求窗口管理器绘制窗口展开/折叠的动效。如果窗口管理器无法提供所需功"
+"能，Yakuake1stScreen 将使用后备动效策略，通过逐步调整窗口蒙版来实现动效。"
+
+#. i18n: ectx: label, entry (Frames), group (Animation)
+#: app/config/Yakuake1stScreen.kcfg:176
+#, kde-format
+msgctxt "@label"
+msgid "Animation frames"
+msgstr "动效帧数"
+
+#. i18n: ectx: whatsthis, entry (Frames), group (Animation)
+#: app/config/Yakuake1stScreen.kcfg:177
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"The number of frames of the open/retract animation. One frame is taken to be "
+"10 miliseconds."
+msgstr "展开/折叠窗口动效的帧数。每帧持续 10 毫秒。"
+
+#. i18n: ectx: label, entry (PollMouse), group (AutoOpen)
+#: app/config/Yakuake1stScreen.kcfg:185
+#, kde-format
+msgctxt "@label"
+msgid "Auto-open window"
+msgstr "自动展开窗口"
+
+#. i18n: ectx: whatsthis, entry (PollMouse), group (AutoOpen)
+#: app/config/Yakuake1stScreen.kcfg:186
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to automatically open the application window when the mouse pointer "
+"is found at the edge of the screen."
+msgstr "是否在鼠标指针移动到屏幕边缘时自动打开 Yakuake1stScreen 窗口。"
+
+#. i18n: ectx: label, entry (PollInterval), group (AutoOpen)
+#: app/config/Yakuake1stScreen.kcfg:190
+#, kde-format
+msgctxt "@label"
+msgid "Mouse pointer poll interval"
+msgstr "鼠标指针检测间隔"
+
+#. i18n: ectx: whatsthis, entry (PollInterval), group (AutoOpen)
+#: app/config/Yakuake1stScreen.kcfg:191
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"The interval during which the mouse pointer position will be checked to "
+"determine whether or not it is at the same edge of the screen as the window."
+msgstr "检测鼠标指针是否与 Yakuake1stScreen 窗口位于同一屏幕边缘的时间间隔。"
+
+#. i18n: ectx: label, entry (FirstRun), group (Dialogs)
+#: app/config/Yakuake1stScreen.kcfg:197
+#, kde-format
+msgctxt "@label"
+msgid "Application first run"
+msgstr "首次运行向导"
+
+#. i18n: ectx: whatsthis, entry (FirstRun), group (Dialogs)
+#: app/config/Yakuake1stScreen.kcfg:198
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Whether this is the first time the application is run."
+msgstr "Yakuake1stScreen 是否首次运行。"
+
+#. i18n: ectx: label, entry (ConfirmQuit), group (Dialogs)
+#: app/config/Yakuake1stScreen.kcfg:202
+#, kde-format
+msgctxt "@label"
+msgid "Confirm quit with multiple sessions"
+msgstr "退出多个会话时请求确认"
+
+#. i18n: ectx: whatsthis, entry (ConfirmQuit), group (Dialogs)
+#: app/config/Yakuake1stScreen.kcfg:203
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Whether to prompt the user before quitting the application when multiple "
+"sessions are open."
+msgstr "当打开了多个会话时，是否在退出 Yakuake1stScreen 时请求用户确认。"
+
+#: app/firstrundialog.cpp:21
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "First Run"
+msgstr "首次运行向导"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, titleWidget)
+#: app/firstrundialog.ui:46
+#, kde-format
+msgctxt "@title"
+msgid "Welcome to Yakuake1stScreen"
+msgstr "欢迎使用 Yakuake1stScreen 下拉式终端"
+
+#. i18n: ectx: property (text), widget (QLabel, introLabel)
+#: app/firstrundialog.ui:53
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Before starting to use the application, you might want to change the "
+"keyboard shortcut used to open and retract the Yakuake1stScreen window:"
+msgstr "在开始使用之前，您可以更改 Yakuake1stScreen 窗口的展开/折叠快捷键："
+
+#. i18n: ectx: property (text), widget (QLabel, outroLabel)
+#: app/firstrundialog.ui:130
+#, kde-format
+msgctxt "@info"
+msgid "You can change the shortcut later at any time via the menu."
+msgstr "您也可以在 Yakuake1stScreen 的菜单中随时更改此快捷键。"
+
+#: app/main.cpp:25
+#, kde-kuit-format
+msgctxt "@title"
+msgid "<application>Yakuake1stScreen</application>"
+msgstr "<application>Yakuake1stScreen 下拉式终端</application>"
+
+#: app/main.cpp:27
+#, kde-kuit-format
+msgctxt "@title"
+msgid "A drop-down terminal emulator based on KDE Konsole technology."
+msgstr "一款基于 KDE Konsole 的下拉式终端仿真器。"
+
+#: app/main.cpp:29
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "(c) 2008-2018 The Yakuake1stScreen Team"
+msgstr "(c) 2008-2018 The Yakuake1stScreen Team"
+
+#: app/main.cpp:36
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Eike Hein"
+msgstr "Eike Hein"
+
+#: app/main.cpp:36
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Maintainer, Lead Developer"
+msgstr "维护者、首席开发者"
+
+#: app/main.cpp:37
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Francois Chazal"
+msgstr "Francois Chazal"
+
+#: app/main.cpp:37
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Project Founder, Legacy skin (Inactive)"
+msgstr "项目创始人、旧版皮肤 (不活跃)"
+
+#: app/main.cpp:38
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Daniel 'suslik' D."
+msgstr "Daniel 'suslik' D."
+
+#: app/main.cpp:38
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Plastik skin"
+msgstr "Plastik 百相皮肤"
+
+#: app/main.cpp:39
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Juan Carlos Torres"
+msgstr "Juan Carlos Torres"
+
+#: app/main.cpp:40
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Tab bar drag and drop support, Prevent Closing toggle"
+msgstr "标签页栏拖放支持、防止窗口关闭的开关"
+
+#: app/main.cpp:42
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Gustavo Ribeiro Croscato"
+msgstr "Gustavo Ribeiro Croscato"
+
+#: app/main.cpp:43
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Icon on tabs with Prevent Closing enabled"
+msgstr "防止关闭功能启用时显示在标签页旁边的图标"
+
+#: app/main.cpp:45
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Danilo Cesar Lemes de Paula"
+msgstr "Danilo Cesar Lemes de Paula"
+
+#: app/main.cpp:46
+#, kde-kuit-format
+msgctxt "@info:credit"
+msgid "Actions to grow terminals"
+msgstr "扩展终端操作"
+
+#: app/main.cpp:49
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Coelacanthus, Guo Yunhe, Tyson Tan, Wang Jiajun, Wordless Echo"
+
+#: app/main.cpp:49
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"coelacanthus@kde.org, i@guoyunhe.me, tds00@qq.com, amesists@gmail.com, "
+"wordlessecho@kde.org"
+
+#: app/mainwindow.cpp:205
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Are you sure you want to quit?"
+msgstr "您确定要退出吗？"
+
+#: app/mainwindow.cpp:212
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>There are multiple open sessions, <emphasis>some of which you have "
+"locked to prevent closing them accidentally.</emphasis> These will be killed "
+"if you continue.</warning>"
+msgstr ""
+"<warning>已打开多个会话，<emphasis>其中某些会话已被锁定以防止意外关闭。</"
+"emphasis>如果继续退出，这些会话将被关闭。</warning>"
+
+#: app/mainwindow.cpp:215
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>There are multiple open sessions. These will be killed if you "
+"continue.</warning>"
+msgstr "<warning>已打开多个会话。如果继续退出，这些会话将被关闭。</warning>"
+
+#: app/mainwindow.cpp:218
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>There are one or more open sessions that you have locked to prevent "
+"closing them accidentally. These will be killed if you continue.</warning>"
+msgstr ""
+"<warning>某些会话已被锁定以防止意外关闭。如果继续退出，这些会话将被关闭。</"
+"warning>"
+
+#: app/mainwindow.cpp:224
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Really Quit?"
+msgstr "您真的确定要退出吗？"
+
+#: app/mainwindow.cpp:255
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Open/Retract Yakuake1stScreen"
+msgstr "展开/折叠 Yakuake1stScreen 窗口"
+
+#: app/mainwindow.cpp:264
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Keep window open when it loses focus"
+msgstr "窗口失去焦点时保持展开"
+
+#: app/mainwindow.cpp:269
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Manage Profiles..."
+msgstr "管理配置方案..."
+
+#: app/mainwindow.cpp:274
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Edit Current Profile..."
+msgstr "编辑当前配置方案..."
+
+#: app/mainwindow.cpp:280
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Increase Window Width"
+msgstr "扩大窗口宽度"
+
+#: app/mainwindow.cpp:285
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Decrease Window Width"
+msgstr "缩小窗口宽度"
+
+#: app/mainwindow.cpp:290
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Increase Window Height"
+msgstr "扩大窗口高度"
+
+#: app/mainwindow.cpp:295
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Decrease Window Height"
+msgstr "缩小窗口高度"
+
+#: app/mainwindow.cpp:300
+#, kde-kuit-format
+msgctxt "@action"
+msgid "New Session"
+msgstr "新建会话"
+
+#: app/mainwindow.cpp:306
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Two Terminals, Horizontally"
+msgstr "两个终端，水平排列"
+
+#: app/mainwindow.cpp:311
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Two Terminals, Vertically"
+msgstr "两个终端，垂直排列"
+
+#: app/mainwindow.cpp:316
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Four Terminals, Grid"
+msgstr "四个终端，网格排列"
+
+#: app/mainwindow.cpp:321
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Close Session"
+msgstr "关闭会话"
+
+#: app/mainwindow.cpp:328
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Previous Session"
+msgstr "上一个会话"
+
+#: app/mainwindow.cpp:334
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Next Session"
+msgstr "下一个会话"
+
+#: app/mainwindow.cpp:340
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Move Session Left"
+msgstr "左移会话"
+
+#: app/mainwindow.cpp:347
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Move Session Right"
+msgstr "右移会话"
+
+#: app/mainwindow.cpp:354
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Right"
+msgstr "向右扩展终端"
+
+#: app/mainwindow.cpp:361
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Left"
+msgstr "向左扩展终端"
+
+#: app/mainwindow.cpp:368
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Top"
+msgstr "向上扩展终端"
+
+#: app/mainwindow.cpp:375
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Grow Terminal to the Bottom"
+msgstr "向下扩展终端"
+
+#: app/mainwindow.cpp:382
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Rename Session..."
+msgstr "重命名会话..."
+
+#: app/mainwindow.cpp:389
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Previous Terminal"
+msgstr "上一个终端"
+
+#: app/mainwindow.cpp:395
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Next Terminal"
+msgstr "下一个终端"
+
+#: app/mainwindow.cpp:401
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Close Active Terminal"
+msgstr "关闭活动终端"
+
+#: app/mainwindow.cpp:408
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Split Left/Right"
+msgstr "水平拆分"
+
+#: app/mainwindow.cpp:415
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Split Top/Bottom"
+msgstr "垂直拆分"
+
+#: app/mainwindow.cpp:422
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Split Automatically"
+msgstr "自动拆分"
+
+#: app/mainwindow.cpp:429
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Prevent Closing"
+msgstr "防止关闭"
+
+#: app/mainwindow.cpp:435 app/tabbar.cpp:190
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Disable Keyboard Input"
+msgstr "禁用键盘输入"
+
+#: app/mainwindow.cpp:441 app/tabbar.cpp:235
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Monitor for Activity"
+msgstr "监视活动"
+
+#: app/mainwindow.cpp:448 app/tabbar.cpp:280
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Monitor for Silence"
+msgstr "监视空闲"
+
+#: app/mainwindow.cpp:455
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Toggle Titlebar"
+msgstr "显示/隐藏标题栏"
+
+#: app/mainwindow.cpp:462
+#, kde-kuit-format
+msgctxt "@action"
+msgid "Switch to Session %1"
+msgstr "切换到会话 %1"
+
+#: app/mainwindow.cpp:617
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Activity detected in monitored terminal in session \"%1\"."
+msgstr "在监视的终端的会话“%1”中检测到活动。"
+
+#: app/mainwindow.cpp:631
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Silence detected in monitored terminal in session \"%1\"."
+msgstr "在监视的终端的会话“%1”中检测到空闲。"
+
+#: app/mainwindow.cpp:690
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Help"
+msgstr "帮助"
+
+#: app/mainwindow.cpp:696
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Quick Options"
+msgstr "快速选项"
+
+#: app/mainwindow.cpp:702
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Screen"
+msgstr "屏幕"
+
+#: app/mainwindow.cpp:707
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Width"
+msgstr "宽度"
+
+#: app/mainwindow.cpp:712
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Height"
+msgstr "高度"
+
+#: app/mainwindow.cpp:715
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Settings"
+msgstr "设置"
+
+#: app/mainwindow.cpp:731
+#, kde-kuit-format
+msgctxt "@item:inmenu"
+msgid "At mouse location"
+msgstr "鼠标所在的屏幕"
+
+#: app/mainwindow.cpp:737
+#, kde-kuit-format
+msgctxt "@item:inmenu"
+msgid "Screen %1"
+msgstr "屏幕 %1"
+
+#: app/mainwindow.cpp:773 app/mainwindow.cpp:795
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: app/mainwindow.cpp:860
+#, kde-kuit-format
+msgctxt "@title Preferences page name"
+msgid "Window"
+msgstr "窗口"
+
+#: app/mainwindow.cpp:866
+#, kde-kuit-format
+msgctxt "@title Preferences page name"
+msgid "Behavior"
+msgstr "行为"
+
+#: app/mainwindow.cpp:869
+#, kde-kuit-format
+msgctxt "@title Preferences page name"
+msgid "Appearance"
+msgstr "外观"
+
+#: app/mainwindow.cpp:951
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<application>Yakuake1stScreen</application> was unable to load a skin. It is likely "
+"that it was installed incorrectly.<nl/><nl/>The application will now quit."
+msgstr ""
+"<application>Yakuake1stScreen</application> 无法加载皮肤。该皮肤可能安装错误。<nl/"
+"><nl/>程序现在将退出。"
+
+#: app/mainwindow.cpp:953
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Cannot Load Skin"
+msgstr "无法加载皮肤"
+
+#: app/mainwindow.cpp:1716
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Press <shortcut>%1</shortcut> to open"
+msgstr "按 <shortcut>%1</shortcut> 展开"
+
+#: app/sessionstack.cpp:255
+#, kde-format
+msgid ""
+"The D-Bus method runCommand was just used.  There are security concerns "
+"about allowing these methods to be public.  If desired, these methods can be "
+"changed to internal use only by re-compiling Yakuake1stScreen. <p>This warning will "
+"only show once for this Yakuake1stScreen instance.</p>"
+msgstr ""
+"程序刚才调用了 D-Bus 的 runCommand 方法。允许程序公开调用此 D-Bus 方法将带来"
+"安全隐患。如果的确有使用的需要，您可以重新编译 Yakuake1stScreen，并在编译时将该方法更"
+"改为仅限 Yakuake 程序内部调用。<p>这条警告信息只会在本 Yakuake1stScreen 实例中显示一"
+"次。</p>"
+
+#: app/sessionstack.cpp:732
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<warning>You have locked this session to prevent accidental closing of "
+"terminals.</warning>"
+msgstr "<warning>此会话已被锁定以防止终端意外关闭。</warning>"
+
+#: app/sessionstack.cpp:736
+#, kde-format
+msgctxt "@info"
+msgid "Are you sure you want to close this session?"
+msgstr "您确定要关闭此会话吗？"
+
+#: app/sessionstack.cpp:738
+#, kde-format
+msgctxt "@info"
+msgid "Are you sure you want to close this terminal?"
+msgstr "您确定要关闭此终端吗？"
+
+#: app/sessionstack.cpp:742
+#, kde-format
+msgctxt "@title:window"
+msgid "Really Close?"
+msgstr "您真的确定要关闭吗？"
+
+#: app/tabbar.cpp:39
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Tab Bar</title><para>The tab bar allows you to switch between "
+"sessions. You can double-click a tab to edit its label.</para>"
+msgstr ""
+"<title>标签页栏</title><para>您可以通过标签页栏在多个会话之间切换。您可以双击"
+"标签页来编辑它的文本标签。</para>"
+
+#: app/tabbar.cpp:58
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Disable Keyboard Input"
+msgstr "禁用键盘输入"
+
+#: app/tabbar.cpp:59
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Monitor for Activity"
+msgstr "监视活动"
+
+#: app/tabbar.cpp:60
+#, kde-kuit-format
+msgctxt "@title:menu"
+msgid "Monitor for Silence"
+msgstr "监视空闲"
+
+#: app/tabbar.cpp:69
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "New Session"
+msgstr "新建会话"
+
+#: app/tabbar.cpp:70
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Adds a new session. Press and hold to select session type from menu."
+msgstr "建立一个新的会话。按住不放将显示菜单，可以从中显示更多会话类型。"
+
+#: app/tabbar.cpp:75
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Close Session"
+msgstr "关闭会话"
+
+#: app/tabbar.cpp:76
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Closes the active session."
+msgstr "关闭活动会话。"
+
+#: app/tabbar.cpp:194
+#, kde-kuit-format
+msgctxt "@action"
+msgid "For This Session"
+msgstr "对于此会话"
+
+#: app/tabbar.cpp:211
+#, kde-kuit-format
+msgctxt "@action"
+msgid "For Terminal %1"
+msgstr "对于终端 %1"
+
+#: app/tabbar.cpp:239 app/tabbar.cpp:284
+#, kde-kuit-format
+msgctxt "@action"
+msgid "In This Session"
+msgstr "在此会话中"
+
+#: app/tabbar.cpp:256 app/tabbar.cpp:301
+#, kde-kuit-format
+msgctxt "@action"
+msgid "In Terminal %1"
+msgstr "在终端 %1 中"
+
+#: app/tabbar.cpp:933
+#, kde-kuit-format
+msgctxt "@title:tab"
+msgid "Shell"
+msgstr "Shell"
+
+#: app/tabbar.cpp:935
+#, kde-kuit-format
+msgctxt "@title:tab"
+msgid "Shell No. %1"
+msgstr "Shell #%1"
+
+#: app/terminal.cpp:163
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<application>Yakuake1stScreen</application> was unable to load the "
+"<application>Konsole</application> component.<nl/> A <application>Konsole</"
+"application> installation is required to use Yakuake1stScreen."
+msgstr ""
+"<application>Yakuake1stScreen</application> 无法加载 <application>Konsole</"
+"application> 组件。<nl/>Yakuake1stScreen 需要安装 <application>Konsole</application> "
+"才能运行。"
+
+#: app/titlebar.cpp:23
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Title Bar</title><para>The title bar displays the session title if "
+"available.</para>"
+msgstr "<title>标题栏</title><para>标题栏将显示会话的标题 (如果可用)。</para>"
+
+#: app/titlebar.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Keep window open when it loses focus"
+msgstr "窗口失去焦点时保持展开"
+
+#: app/titlebar.cpp:37
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "If this is checked, the window will stay open when it loses focus."
+msgstr "启用此选项后，窗口在失去焦点之后也将保持展开状态。"
+
+#: app/titlebar.cpp:44
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Open Menu"
+msgstr "打开菜单"
+
+#: app/titlebar.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Opens the main menu."
+msgstr "打开主菜单。"
+
+#: app/titlebar.cpp:50
+#, kde-kuit-format
+msgctxt "@info:tooltip Quits the application"
+msgid "Quit"
+msgstr "退出"
+
+#: app/titlebar.cpp:51
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid "Quits the application."
+msgstr "退出 Yakuake1stScreen 程序。"

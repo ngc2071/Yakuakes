@@ -1,32 +1,19 @@
 /*
-  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
-  Copyright (C) 2009 by Juan Carlos Torres <carlosdgtorres@gmail.com>
+  SPDX-FileCopyrightText: 2008-2014 Eike Hein <hein@kde.org>
+  SPDX-FileCopyrightText: 2009 Juan Carlos Torres <carlosdgtorres@gmail.com>
 
-  This program is free software; you can redistribute it and/or
-  modify it under the terms of the GNU General Public License as
-  published by the Free Software Foundation; either version 2 of
-  the License or (at your option) version 3 or any later version
-  accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy
-  defined in Section 14 of version 3 of the license.
-
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program. If not, see https://www.gnu.org/licenses/.
+  SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
-
 
 #include "session.h"
 #include "terminal.h"
 
+#include <algorithm>
 
 int Session::m_availableSessionId = 0;
 
-Session::Session(const QString& workingDir, SessionType type, QWidget* parent) : QObject(parent)
+Session::Session(const QString &workingDir, SessionType type, QWidget *parent)
+    : QObject(parent)
 {
     m_workingDir = workingDir;
     m_sessionId = m_availableSessionId;
@@ -44,220 +31,204 @@ Session::Session(const QString& workingDir, SessionType type, QWidget* parent) :
 
 Session::~Session()
 {
-    if (m_baseSplitter) delete m_baseSplitter;
+    if (m_baseSplitter)
+        delete m_baseSplitter;
 
-    emit destroyed(m_sessionId);
+    Q_EMIT destroyed(m_sessionId);
 }
 
 void Session::setupSession(SessionType type)
 {
-    switch (type)
-    {
-        case Single:
-        {
-            Terminal* terminal = addTerminal(m_baseSplitter);
+    switch (type) {
+    case Single: {
+        Terminal *terminal = addTerminal(m_baseSplitter);
+        setActiveTerminal(terminal->id());
+
+        break;
+    }
+
+    case TwoHorizontal: {
+        int splitterWidth = m_baseSplitter->width();
+
+        Terminal *terminal = addTerminal(m_baseSplitter);
+        addTerminal(m_baseSplitter);
+
+        QList<int> newSplitterSizes;
+        newSplitterSizes << (splitterWidth / 2) << (splitterWidth / 2);
+        m_baseSplitter->setSizes(newSplitterSizes);
+
+        QWidget *terminalWidget = terminal->terminalWidget();
+
+        if (terminalWidget) {
+            terminalWidget->setFocus();
             setActiveTerminal(terminal->id());
-
-            break;
         }
 
-        case TwoHorizontal:
-        {
-            int splitterWidth = m_baseSplitter->width();
+        break;
+    }
 
-            Terminal* terminal = addTerminal(m_baseSplitter);
-            addTerminal(m_baseSplitter);
+    case TwoVertical: {
+        m_baseSplitter->setOrientation(Qt::Vertical);
 
-            QList<int> newSplitterSizes;
-            newSplitterSizes << (splitterWidth / 2) << (splitterWidth / 2);
-            m_baseSplitter->setSizes(newSplitterSizes);
+        int splitterHeight = m_baseSplitter->height();
 
-            QWidget* terminalWidget = terminal->terminalWidget();
+        Terminal *terminal = addTerminal(m_baseSplitter);
+        addTerminal(m_baseSplitter);
 
-            if (terminalWidget)
-            {
-                terminalWidget->setFocus();
-                setActiveTerminal(terminal->id());
-            }
+        QList<int> newSplitterSizes;
+        newSplitterSizes << (splitterHeight / 2) << (splitterHeight / 2);
+        m_baseSplitter->setSizes(newSplitterSizes);
 
-            break;
+        QWidget *terminalWidget = terminal->terminalWidget();
+
+        if (terminalWidget) {
+            terminalWidget->setFocus();
+            setActiveTerminal(terminal->id());
         }
 
-        case TwoVertical:
-        {
-            m_baseSplitter->setOrientation(Qt::Vertical);
+        break;
+    }
 
-            int splitterHeight = m_baseSplitter->height();
+    case Quad: {
+        int splitterWidth = m_baseSplitter->width();
+        int splitterHeight = m_baseSplitter->height();
 
-            Terminal* terminal = addTerminal(m_baseSplitter);
-            addTerminal(m_baseSplitter);
+        m_baseSplitter->setOrientation(Qt::Vertical);
 
-            QList<int> newSplitterSizes;
-            newSplitterSizes << (splitterHeight / 2) << (splitterHeight / 2);
-            m_baseSplitter->setSizes(newSplitterSizes);
+        Splitter *upperSplitter = new Splitter(Qt::Horizontal, m_baseSplitter);
+        connect(upperSplitter, SIGNAL(destroyed()), this, SLOT(cleanup()));
 
-            QWidget* terminalWidget = terminal->terminalWidget();
+        Splitter *lowerSplitter = new Splitter(Qt::Horizontal, m_baseSplitter);
+        connect(lowerSplitter, SIGNAL(destroyed()), this, SLOT(cleanup()));
 
-            if (terminalWidget)
-            {
-                terminalWidget->setFocus();
-                setActiveTerminal(terminal->id());
-            }
+        Terminal *terminal = addTerminal(upperSplitter);
+        addTerminal(upperSplitter);
 
-            break;
+        addTerminal(lowerSplitter);
+        addTerminal(lowerSplitter);
+
+        QList<int> newSplitterSizes;
+        newSplitterSizes << (splitterHeight / 2) << (splitterHeight / 2);
+        m_baseSplitter->setSizes(newSplitterSizes);
+
+        newSplitterSizes.clear();
+        newSplitterSizes << (splitterWidth / 2) << (splitterWidth / 2);
+        upperSplitter->setSizes(newSplitterSizes);
+        lowerSplitter->setSizes(newSplitterSizes);
+
+        QWidget *terminalWidget = terminal->terminalWidget();
+
+        if (terminalWidget) {
+            terminalWidget->setFocus();
+            setActiveTerminal(terminal->id());
         }
 
-        case Quad:
-        {
-            int splitterWidth = m_baseSplitter->width();
-            int splitterHeight = m_baseSplitter->height();
+        break;
+    }
 
-            m_baseSplitter->setOrientation(Qt::Vertical);
+    default: {
+        addTerminal(m_baseSplitter);
 
-            Splitter* upperSplitter = new Splitter(Qt::Horizontal, m_baseSplitter);
-            connect(upperSplitter, SIGNAL(destroyed()), this, SLOT(cleanup()));
-
-            Splitter* lowerSplitter = new Splitter(Qt::Horizontal, m_baseSplitter);
-            connect(lowerSplitter, SIGNAL(destroyed()), this, SLOT(cleanup()));
-
-            Terminal* terminal = addTerminal(upperSplitter);
-            addTerminal(upperSplitter);
-
-            addTerminal(lowerSplitter);
-            addTerminal(lowerSplitter);
-
-            QList<int> newSplitterSizes;
-            newSplitterSizes << (splitterHeight / 2) << (splitterHeight / 2);
-            m_baseSplitter->setSizes(newSplitterSizes);
-
-            newSplitterSizes.clear();
-            newSplitterSizes << (splitterWidth / 2) << (splitterWidth / 2);
-            upperSplitter->setSizes(newSplitterSizes);
-            lowerSplitter->setSizes(newSplitterSizes);
-
-            QWidget* terminalWidget = terminal->terminalWidget();
-
-            if (terminalWidget)
-            {
-                terminalWidget->setFocus();
-                setActiveTerminal(terminal->id());
-            }
-
-            break;
-        }
-
-        default:
-        {
-            addTerminal(m_baseSplitter);
-
-            break;
-        }
+        break;
+    }
     }
 }
 
-Terminal* Session::addTerminal(QWidget* parent, QString workingDir)
+Terminal *Session::addTerminal(QSplitter *parent, QString workingDir)
 {
     if (workingDir.isEmpty()) {
         // fallback to session's default working dir
         workingDir = m_workingDir;
     }
 
-    Terminal* terminal = new Terminal(workingDir, parent);
-    connect(terminal, SIGNAL(activated(int)), this, SLOT(setActiveTerminal(int)));
-    connect(terminal, SIGNAL(manuallyActivated(Terminal*)), this, SIGNAL(terminalManuallyActivated(Terminal*)));
-    connect(terminal, SIGNAL(titleChanged(int,QString)), this, SLOT(setTitle(int,QString)));
-    connect(terminal, SIGNAL(keyboardInputBlocked(Terminal*)), this, SIGNAL(keyboardInputBlocked(Terminal*)));
-    connect(terminal, SIGNAL(silenceDetected(Terminal*)), this, SIGNAL(silenceDetected(Terminal*)));
-    connect(terminal, SIGNAL(destroyed(int)), this, SLOT(cleanup(int)));
+    std::unique_ptr<Terminal> terminal = std::make_unique<Terminal>(workingDir, parent);
+    connect(terminal.get(), SIGNAL(activated(int)), this, SLOT(setActiveTerminal(int)));
+    connect(terminal.get(), SIGNAL(manuallyActivated(Terminal *)), this, SIGNAL(terminalManuallyActivated(Terminal *)));
+    connect(terminal.get(), SIGNAL(titleChanged(int, QString)), this, SLOT(setTitle(int, QString)));
+    connect(terminal.get(), SIGNAL(keyboardInputBlocked(Terminal *)), this, SIGNAL(keyboardInputBlocked(Terminal *)));
+    connect(terminal.get(), SIGNAL(silenceDetected(Terminal *)), this, SIGNAL(silenceDetected(Terminal *)));
+    connect(terminal.get(), &Terminal::closeRequested, this, QOverload<int>::of(&Session::cleanup));
 
-    m_terminals.insert(terminal->id(), terminal);
+    Terminal *term = terminal.get();
 
-    QWidget* terminalWidget = terminal->terminalWidget();
-    if (terminalWidget) terminalWidget->setFocus();
+    m_terminals[terminal->id()] = std::move(terminal);
 
-    return terminal;
+    Q_EMIT wantsBlurChanged();
+
+    parent->addWidget(term->partWidget());
+    QWidget *terminalWidget = term->terminalWidget();
+    if (terminalWidget)
+        terminalWidget->setFocus();
+
+    return term;
 }
 
 void Session::closeTerminal(int terminalId)
 {
-    if (terminalId == -1) terminalId = m_activeTerminalId;
-    if (terminalId == -1) return;
-    if (!m_terminals.contains(terminalId)) return;
+    if (terminalId == -1)
+        terminalId = m_activeTerminalId;
+    if (terminalId == -1)
+        return;
+    if (!m_terminals.contains(terminalId))
+        return;
 
-    m_terminals.value(terminalId)->deletePart();
+    cleanup(terminalId);
 }
 
 void Session::focusPreviousTerminal()
 {
-    if (m_activeTerminalId == -1) return;
-    if (!m_terminals.contains(m_activeTerminalId)) return;
+    if (m_activeTerminalId == -1)
+        return;
+    if (!m_terminals.contains(m_activeTerminalId))
+        return;
 
-    QMapIterator<int, Terminal*> it(m_terminals);
+    std::map<int, std::unique_ptr<Terminal>>::iterator currentTerminal = m_terminals.find(m_activeTerminalId);
 
-    it.toBack();
+    std::map<int, std::unique_ptr<Terminal>>::iterator previousTerminal;
 
-    while (it.hasPrevious())
-    {
-        it.previous();
+    if (currentTerminal == m_terminals.begin()) {
+        previousTerminal = std::prev(m_terminals.end());
+    } else {
+        previousTerminal = std::prev(currentTerminal);
+    }
 
-        if (it.key() == m_activeTerminalId)
-        {
-            if (it.hasPrevious())
-            {
-                QWidget* terminalWidget = it.peekPrevious().value()->terminalWidget();
-                if (terminalWidget) terminalWidget->setFocus();
-            }
-            else
-            {
-                it.toBack();
-
-                QWidget* terminalWidget = it.peekPrevious().value()->terminalWidget();
-                if (terminalWidget) terminalWidget->setFocus();
-            }
-
-            break;
-        }
+    QWidget *terminalWidget = previousTerminal->second->terminalWidget();
+    if (terminalWidget) {
+        terminalWidget->setFocus();
     }
 }
 
 void Session::focusNextTerminal()
 {
-    if (m_activeTerminalId == -1) return;
-    if (!m_terminals.contains(m_activeTerminalId)) return;
+    if (m_activeTerminalId == -1)
+        return;
+    if (!m_terminals.contains(m_activeTerminalId))
+        return;
 
-    QMapIterator<int, Terminal*> it(m_terminals);
+    std::map<int, std::unique_ptr<Terminal>>::iterator currentTerminal = m_terminals.find(m_activeTerminalId);
 
-    while (it.hasNext())
-    {
-        it.next();
+    std::map<int, std::unique_ptr<Terminal>>::iterator nextTerminal = std::next(currentTerminal);
 
-        if (it.key() == m_activeTerminalId)
-        {
-            if (it.hasNext())
-            {
-                QWidget* terminalWidget = it.peekNext().value()->terminalWidget();
-                if (terminalWidget) terminalWidget->setFocus();
-            }
-            else
-            {
-                it.toFront();
+    if (nextTerminal == m_terminals.end()) {
+        nextTerminal = m_terminals.begin();
+    }
 
-                QWidget* terminalWidget = it.peekNext().value()->terminalWidget();
-                if (terminalWidget) terminalWidget->setFocus();
-            }
-
-            break;
-        }
+    QWidget *terminalWidget = nextTerminal->second->terminalWidget();
+    if (terminalWidget) {
+        terminalWidget->setFocus();
     }
 }
 
 int Session::splitLeftRight(int terminalId)
 {
-    if (terminalId == -1) terminalId = m_activeTerminalId;
-    if (terminalId == -1) return -1;
-    if (!m_terminals.contains(terminalId)) return -1;
+    if (terminalId == -1)
+        terminalId = m_activeTerminalId;
+    if (terminalId == -1)
+        return -1;
+    if (!m_terminals.contains(terminalId))
+        return -1;
 
-    Terminal* terminal = m_terminals.value(terminalId);
+    Terminal *terminal = m_terminals[terminalId].get();
 
     if (terminal)
         return split(terminal, Qt::Horizontal);
@@ -267,11 +238,14 @@ int Session::splitLeftRight(int terminalId)
 
 int Session::splitTopBottom(int terminalId)
 {
-    if (terminalId == -1) terminalId = m_activeTerminalId;
-    if (terminalId == -1) return -1;
-    if (!m_terminals.contains(terminalId)) return -1;
+    if (terminalId == -1)
+        terminalId = m_activeTerminalId;
+    if (terminalId == -1)
+        return -1;
+    if (!m_terminals.contains(terminalId))
+        return -1;
 
-    Terminal* terminal = m_terminals.value(terminalId);
+    Terminal *terminal = m_terminals[terminalId].get();
 
     if (terminal)
         return split(terminal, Qt::Vertical);
@@ -279,12 +253,31 @@ int Session::splitTopBottom(int terminalId)
         return -1;
 }
 
-int Session::split(Terminal* terminal, Qt::Orientation orientation)
+int Session::splitAuto(int terminalId)
 {
-    Splitter* splitter = static_cast<Splitter*>(terminal->splitter());
+    if (terminalId == -1)
+        terminalId = m_activeTerminalId;
+    if (terminalId == -1)
+        return -1;
+    if (!m_terminals.contains(terminalId))
+        return -1;
 
-    if (splitter->count() == 1)
-    {
+    Terminal *terminal = m_terminals[terminalId].get();
+
+    if (terminal) {
+        if (terminal->partWidget()->width() > terminal->partWidget()->height())
+            return split(terminal, Qt::Horizontal);
+        else
+            return split(terminal, Qt::Vertical);
+    } else
+        return -1;
+}
+
+int Session::split(Terminal *terminal, Qt::Orientation orientation)
+{
+    Splitter *splitter = static_cast<Splitter *>(terminal->splitter());
+
+    if (splitter->count() == 1) {
         int splitterWidth = splitter->width();
 
         if (splitter->orientation() != orientation)
@@ -296,23 +289,23 @@ int Session::split(Terminal* terminal, Qt::Orientation orientation)
         newSplitterSizes << (splitterWidth / 2) << (splitterWidth / 2);
         splitter->setSizes(newSplitterSizes);
 
-        QWidget* partWidget = terminal->partWidget();
-        if (partWidget) partWidget->show();
+        QWidget *partWidget = terminal->partWidget();
+        if (partWidget)
+            partWidget->show();
 
         m_activeTerminalId = terminal->id();
-    }
-    else
-    {
+    } else {
         QList<int> splitterSizes = splitter->sizes();
 
-        Splitter* newSplitter = new Splitter(orientation, splitter);
+        Splitter *newSplitter = new Splitter(orientation, splitter);
         connect(newSplitter, SIGNAL(destroyed()), this, SLOT(cleanup()));
 
         if (splitter->indexOf(terminal->partWidget()) == 0)
             splitter->insertWidget(0, newSplitter);
 
-        QWidget* partWidget = terminal->partWidget();
-        if (partWidget) partWidget->setParent(newSplitter);
+        QWidget *partWidget = terminal->partWidget();
+        if (partWidget)
+            partWidget->setParent(newSplitter);
 
         terminal->setSplitter(newSplitter);
 
@@ -326,7 +319,8 @@ int Session::split(Terminal* terminal, Qt::Orientation orientation)
         newSplitter->show();
 
         partWidget = terminal->partWidget();
-        if (partWidget) partWidget->show();
+        if (partWidget)
+            partWidget->show();
 
         m_activeTerminalId = terminal->id();
     }
@@ -336,40 +330,34 @@ int Session::split(Terminal* terminal, Qt::Orientation orientation)
 
 int Session::tryGrowTerminal(int terminalId, GrowthDirection direction, uint pixels)
 {
-    Terminal* terminal = getTerminal(terminalId);
-    Splitter* splitter = static_cast<Splitter*>(terminal->splitter());
-    QWidget* child = terminal->partWidget();
+    Terminal *terminal = getTerminal(terminalId);
+    Splitter *splitter = static_cast<Splitter *>(terminal->splitter());
+    QWidget *child = terminal->partWidget();
 
-    while (splitter)
-    {
+    while (splitter) {
         bool isHorizontal = (direction == Right || direction == Left);
         bool isForward = (direction == Down || direction == Right);
 
         // Detecting correct orientation.
-        if ((splitter->orientation() == Qt::Horizontal && isHorizontal)
-            || (splitter->orientation() == Qt::Vertical && !isHorizontal))
-        {
-
+        if ((splitter->orientation() == Qt::Horizontal && isHorizontal) || (splitter->orientation() == Qt::Vertical && !isHorizontal)) {
             int currentPos = splitter->indexOf(child);
 
             if (currentPos != -1 // Next/Prev movable element detection.
-                && (currentPos != 0 || isForward)
-                && (currentPos != splitter->count() - 1 || !isForward))
-            {
+                && (currentPos != 0 || isForward) && (currentPos != splitter->count() - 1 || !isForward)) {
                 QList<int> currentSizes = splitter->sizes();
                 int oldSize = currentSizes[currentPos];
 
-                int affected = isForward ? currentPos + 1: currentPos -1;
+                int affected = isForward ? currentPos + 1 : currentPos - 1;
                 currentSizes[currentPos] += pixels;
                 currentSizes[affected] -= pixels;
                 splitter->setSizes(currentSizes);
 
-                return splitter->sizes()[currentPos] - oldSize;
+                return splitter->sizes().at(currentPos) - oldSize;
             }
         }
         // Try with a higher level.
         child = splitter;
-        splitter = static_cast<Splitter*>(splitter->parentWidget());
+        splitter = static_cast<Splitter *>(splitter->parentWidget());
     }
 
     return -1;
@@ -379,37 +367,38 @@ void Session::setActiveTerminal(int terminalId)
 {
     m_activeTerminalId = terminalId;
 
-    setTitle(m_activeTerminalId, m_terminals.value(m_activeTerminalId)->title());
+    setTitle(m_activeTerminalId, m_terminals[m_activeTerminalId]->title());
 }
 
-void Session::setTitle(int terminalId, const QString& title)
+void Session::setTitle(int terminalId, const QString &title)
 {
-    if (terminalId == m_activeTerminalId)
-    {
+    if (terminalId == m_activeTerminalId) {
         m_title = title;
 
-        emit titleChanged(m_title);
-        emit titleChanged(m_sessionId, m_title);
+        Q_EMIT titleChanged(m_title);
+        Q_EMIT titleChanged(m_sessionId, m_title);
     }
 }
 
 void Session::cleanup(int terminalId)
 {
-    if (m_activeTerminalId == terminalId && m_terminals.count() > 1)
+    if (m_activeTerminalId == terminalId && m_terminals.size() > 1)
         focusPreviousTerminal();
 
-    m_terminals.remove(terminalId);
+    m_terminals.erase(terminalId);
+    Q_EMIT wantsBlurChanged();
 
     cleanup();
 }
 
 void Session::cleanup()
 {
-    if (!m_baseSplitter) return;
+    if (!m_baseSplitter)
+        return;
 
     m_baseSplitter->recursiveCleanup();
 
-    if (m_terminals.isEmpty())
+    if (m_terminals.empty())
         m_baseSplitter->deleteLater();
 }
 
@@ -422,13 +411,10 @@ void Session::prepareShutdown()
 
 const QString Session::terminalIdList()
 {
-    QList<int> keyList = m_terminals.uniqueKeys();
     QStringList idList;
-
-    QListIterator<int> i(keyList);
-
-    while (i.hasNext())
-        idList << QString::number(i.next());
+    for (auto &[id, terminal] : m_terminals) {
+        idList << QString::number(id);
+    }
 
     return idList.join(QLatin1Char(','));
 }
@@ -438,223 +424,206 @@ bool Session::hasTerminal(int terminalId)
     return m_terminals.contains(terminalId);
 }
 
-Terminal* Session::getTerminal(int terminalId)
+Terminal *Session::getTerminal(int terminalId)
 {
-    if (!m_terminals.contains(terminalId)) return nullptr;
+    if (!m_terminals.contains(terminalId))
+        return nullptr;
 
-    return m_terminals.value(terminalId);
+    return m_terminals[terminalId].get();
 }
 
-void Session::runCommand(const QString& command, int terminalId)
+void Session::runCommand(const QString &command, int terminalId)
 {
-    if (terminalId == -1) terminalId = m_activeTerminalId;
-    if (terminalId == -1) return;
-    if (!m_terminals.contains(terminalId)) return;
+    if (terminalId == -1)
+        terminalId = m_activeTerminalId;
+    if (terminalId == -1)
+        return;
+    if (!m_terminals.contains(terminalId))
+        return;
 
-    m_terminals.value(terminalId)->runCommand(command);
+    m_terminals[terminalId]->runCommand(command);
 }
 
 void Session::manageProfiles()
 {
-    if ( m_activeTerminalId == -1) return;
-    if (!m_terminals.contains(m_activeTerminalId)) return;
+    if (m_activeTerminalId == -1)
+        return;
+    if (!m_terminals.contains(m_activeTerminalId))
+        return;
 
-    m_terminals.value(m_activeTerminalId)->manageProfiles();
+    m_terminals[m_activeTerminalId]->manageProfiles();
 }
 
 void Session::editProfile()
 {
-    if ( m_activeTerminalId == -1) return;
-    if (!m_terminals.contains(m_activeTerminalId)) return;
+    if (m_activeTerminalId == -1)
+        return;
+    if (!m_terminals.contains(m_activeTerminalId))
+        return;
 
-    m_terminals.value(m_activeTerminalId)->editProfile();
+    m_terminals[m_activeTerminalId]->editProfile();
 }
 
 bool Session::keyboardInputEnabled()
 {
-    int keyboardInputEnabledCount = 0;
-
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        if (i.next().value()->keyboardInputEnabled())
-            ++keyboardInputEnabledCount;
-
-    return m_terminals.count() == keyboardInputEnabledCount;
+    return std::all_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return terminal->keyboardInputEnabled();
+    });
 }
 
 void Session::setKeyboardInputEnabled(bool enabled)
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        setKeyboardInputEnabled(i.next().key(), enabled);
+    for (auto &[id, terminal] : m_terminals) {
+        terminal->setKeyboardInputEnabled(enabled);
+    }
 }
 
 bool Session::keyboardInputEnabled(int terminalId)
 {
-    if (!m_terminals.contains(terminalId)) return false;
+    if (!m_terminals.contains(terminalId))
+        return false;
 
-    return m_terminals.value(terminalId)->keyboardInputEnabled();
+    return m_terminals[terminalId]->keyboardInputEnabled();
 }
 
 void Session::setKeyboardInputEnabled(int terminalId, bool enabled)
 {
-    if (!m_terminals.contains(terminalId)) return;
+    if (!m_terminals.contains(terminalId))
+        return;
 
-    m_terminals.value(terminalId)->setKeyboardInputEnabled(enabled);
+    m_terminals[terminalId]->setKeyboardInputEnabled(enabled);
 }
 
 bool Session::hasTerminalsWithKeyboardInputEnabled()
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        if (i.next().value()->keyboardInputEnabled())
-            return true;
-
-    return false;
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return terminal->keyboardInputEnabled();
+    });
 }
 
 bool Session::hasTerminalsWithKeyboardInputDisabled()
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        if (!i.next().value()->keyboardInputEnabled())
-            return true;
-
-    return false;
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return !terminal->keyboardInputEnabled();
+    });
 }
 
 bool Session::monitorActivityEnabled()
 {
-    int monitorActivityEnabledCount = 0;
-
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        if (i.next().value()->monitorActivityEnabled())
-            ++monitorActivityEnabledCount;
-
-    return m_terminals.count() == monitorActivityEnabledCount;
+    return std::all_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return terminal->monitorActivityEnabled();
+    });
 }
 
 void Session::setMonitorActivityEnabled(bool enabled)
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        setMonitorActivityEnabled(i.next().key(), enabled);
+    for (auto &[id, terminal] : m_terminals) {
+        setMonitorActivityEnabled(id, enabled);
+    }
 }
 
 bool Session::monitorActivityEnabled(int terminalId)
 {
-    if (!m_terminals.contains(terminalId)) return false;
+    if (!m_terminals.contains(terminalId))
+        return false;
 
-    return m_terminals.value(terminalId)->monitorActivityEnabled();
+    return m_terminals[terminalId]->monitorActivityEnabled();
 }
 
 void Session::setMonitorActivityEnabled(int terminalId, bool enabled)
 {
-    if (!m_terminals.contains(terminalId)) return;
+    if (!m_terminals.contains(terminalId))
+        return;
 
-    Terminal* terminal = m_terminals.value(terminalId);
+    Terminal *terminal = m_terminals[terminalId].get();
 
-    connect(terminal, SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)),
-        Qt::UniqueConnection);
+    connect(terminal, SIGNAL(activityDetected(Terminal *)), this, SIGNAL(activityDetected(Terminal *)), Qt::UniqueConnection);
 
     terminal->setMonitorActivityEnabled(enabled);
 }
 
 bool Session::hasTerminalsWithMonitorActivityEnabled()
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        if (i.next().value()->monitorActivityEnabled())
-            return true;
-
-    return false;
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return terminal->monitorActivityEnabled();
+    });
 }
 
 bool Session::hasTerminalsWithMonitorActivityDisabled()
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        if (!i.next().value()->monitorActivityEnabled())
-            return true;
-
-    return false;
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return !terminal->monitorActivityEnabled();
+    });
 }
 
 void Session::reconnectMonitorActivitySignals()
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-    {
-        i.next();
-
-        connect(i.value(), SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)),
-            Qt::UniqueConnection);
+    for (auto &[id, terminal] : m_terminals) {
+        // clang-format off
+        connect(terminal.get(), SIGNAL(activityDetected(Terminal*)), this, SIGNAL(activityDetected(Terminal*)), Qt::UniqueConnection);
+        // clang-format on
     }
 }
 
 bool Session::monitorSilenceEnabled()
 {
-    int monitorSilenceEnabledCount = 0;
-
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        if (i.next().value()->monitorSilenceEnabled())
-            ++monitorSilenceEnabledCount;
-
-    return m_terminals.count() == monitorSilenceEnabledCount;
+    return std::all_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return terminal->monitorSilenceEnabled();
+    });
 }
 
 void Session::setMonitorSilenceEnabled(bool enabled)
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        setMonitorSilenceEnabled(i.next().key(), enabled);
+    for (auto &[id, terminal] : m_terminals) {
+        terminal->setMonitorSilenceEnabled(enabled);
+    }
 }
 
 bool Session::monitorSilenceEnabled(int terminalId)
 {
-    if (!m_terminals.contains(terminalId)) return false;
+    if (!m_terminals.contains(terminalId))
+        return false;
 
-    return m_terminals.value(terminalId)->monitorSilenceEnabled();
+    return m_terminals[terminalId]->monitorSilenceEnabled();
 }
 
 void Session::setMonitorSilenceEnabled(int terminalId, bool enabled)
 {
-    if (!m_terminals.contains(terminalId)) return;
+    if (!m_terminals.contains(terminalId))
+        return;
 
-    m_terminals.value(terminalId)->setMonitorSilenceEnabled(enabled);
+    m_terminals[terminalId]->setMonitorSilenceEnabled(enabled);
 }
 
 bool Session::hasTerminalsWithMonitorSilenceDisabled()
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        if (!i.next().value()->monitorSilenceEnabled())
-            return true;
-
-    return false;
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return !terminal->monitorSilenceEnabled();
+    });
 }
 
 bool Session::hasTerminalsWithMonitorSilenceEnabled()
 {
-    QMapIterator<int, Terminal*> i(m_terminals);
-
-    while (i.hasNext())
-        if (i.next().value()->monitorSilenceEnabled())
-            return true;
-
-    return false;
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return terminal->monitorSilenceEnabled();
+    });
 }
+
+bool Session::wantsBlur() const
+{
+    return std::any_of(m_terminals.cbegin(), m_terminals.cend(), [](auto &it) {
+        auto &[id, terminal] = it;
+        return terminal->wantsBlur();
+    });
+}
+
+#include "moc_session.cpp"

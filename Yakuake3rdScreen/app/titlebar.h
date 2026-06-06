@@ -1,77 +1,61 @@
 /*
-  Copyright (C) 2008-2014 by Eike Hein <hein@kde.org>
-  Copyright (C) 2020 by Ryan McCoskrie <work@ryanmccoskrie.me>
+  SPDX-FileCopyrightText: 2008-2014 Eike Hein <hein@kde.org>
+  SPDX-FileCopyrightText: 2020 Ryan McCoskrie <work@ryanmccoskrie.me>
 
-  This program is free software; you can redistribute it and/or
-  modify it under the terms of the GNU General Public License as
-  published by the Free Software Foundation; either version 2 of
-  the License or (at your option) version 3 or any later version
-  accepted by the membership of KDE e.V. (or its successor appro-
-  ved by the membership of KDE e.V.), which shall act as a proxy
-  defined in Section 14 of version 3 of the license.
-
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program. If not, see https://www.gnu.org/licenses/.
+  SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
-
 
 #ifndef TITLEBAR_H
 #define TITLEBAR_H
 
-
-#include <QWidget>
 #include <QMouseEvent>
-
+#include <QWidget>
+#include <qevent.h>
 
 class MainWindow;
 class Skin;
 
 class QPushButton;
 
-
 class TitleBar : public QWidget
 {
     Q_OBJECT
 
-    public:
-        explicit TitleBar(MainWindow* mainWindow);
-        ~TitleBar();
+public:
+    explicit TitleBar(MainWindow *mainWindow);
+    ~TitleBar() override;
 
-        void applySkin();
-        void updateMask();
-        void updateMenu();
+    void setVisible(bool visible) override;
+    void applySkin();
+    void updateMask();
+    void updateMenu();
+    void updateCursor();
 
-        QString title();
+    QString title() const;
 
-        void setFocusButtonState(bool checked);
+    void setFocusButtonState(bool checked);
 
+public Q_SLOTS:
+    void setTitle(const QString &title);
 
-    public Q_SLOTS:
-        void setTitle(const QString& title);
+protected:
+    void resizeEvent(QResizeEvent *) override;
+    void paintEvent(QPaintEvent *) override;
+    void mouseMoveEvent(QMouseEvent *) override;
+    void enterEvent(QEnterEvent *event) override;
 
+private:
+    void moveButtons();
 
-    protected:
-        void resizeEvent(QResizeEvent*) override;
-        void paintEvent(QPaintEvent*) override;
-        void mouseMoveEvent(QMouseEvent*) override;
+    MainWindow *m_mainWindow = nullptr;
+    Skin *m_skin = nullptr;
+    bool m_visible = false;
 
+    QPushButton *m_focusButton = nullptr;
+    QPushButton *m_menuButton = nullptr;
+    QPushButton *m_quitButton = nullptr;
 
-    private:
-        void moveButtons();
-
-        MainWindow* m_mainWindow;
-        Skin* m_skin;
-
-        QPushButton* m_focusButton;
-        QPushButton* m_menuButton;
-        QPushButton* m_quitButton;
-
-        QString m_title;
+    QString m_title;
 };
 
 #endif
