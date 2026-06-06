@@ -116,4 +116,4 @@ git restore README.md
 
 # Final steps for Almalinux 10
 
-After installation, copy the $YAKUAKE/skins folder from the installation location, like /opt/Yakuake1stScreen/share/Yakuake1stScreen/skins, to your $HOME/.local/share/. Having a folder like $HOME/.local/share/Yakuake1stScreen/skins should avoid the error that skins were not found and installation was faulty.
+After installation, copy the `$YAKUAKE/skins` folder from the installation location, like `/opt/Yakuake1stScreen/share/Yakuake1stScreen/skins`, to your `$HOME/.local/share/`. Having a folder like `$HOME/.local/share/Yakuake1stScreen/skins` should avoid the error that skins were not found and installation was faulty.
